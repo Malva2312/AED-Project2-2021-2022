@@ -1,9 +1,9 @@
 #include <iostream>
 
 
-#include "Stop.h"
-#include "Stop.cpp"
+#include "Classes/Stop.h"
 
+class Stop;
 using namespace std;
 
 int main(){

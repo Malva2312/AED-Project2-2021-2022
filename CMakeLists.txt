@@ -3,4 +3,4 @@ project(TrabalhoAED2)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(TrabalhoAED2 main.cpp)
+add_executable(TrabalhoAED2 main.cpp Classes/Stop.cpp Classes/Stop.h)
