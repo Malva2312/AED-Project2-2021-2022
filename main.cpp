@@ -2,6 +2,8 @@
 
 
 #include "Classes/Stop.h"
+#include "UI/Menu.h"
+#include "Classes/Program.h"
 
 class Stop;
 using namespace std;
@@ -15,5 +17,7 @@ int main(){
         }
         cout << endl;
     }
+
+    Program();
 
 }
