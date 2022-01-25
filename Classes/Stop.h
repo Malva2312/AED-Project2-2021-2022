@@ -21,6 +21,8 @@ public:
 
     std::vector<std::vector<std::string>> read(std::string filepath) const;
     std::vector<std::string> read_stop(std::string line) const;
+
+    std::string getName();
 };
 
 

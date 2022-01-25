@@ -53,3 +53,7 @@ vector<string> Stop::read_stop(string line) const{
     return data;
 }
 
+std::string Stop::getName() {
+    return this->name;
+}
+
