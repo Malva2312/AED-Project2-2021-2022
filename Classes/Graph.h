@@ -1,6 +1,3 @@
-//
-// Created by Utilizador on 25/01/2022.
-//
 
 #ifndef TRABALHOAED2_GRAPH_H
 #define TRABALHOAED2_GRAPH_H
@@ -30,12 +27,18 @@ class Graph{
 private:
     std::vector<Node<T, W> * > allNodes;
     unsigned int graphSize;
-    //bool hasDir;            //false: undirect; true: directed
 
 public:
     Graph(T * firstNodeValue, unsigned int size);
     void setAllNotVisited();
 
+    std::vector<T *> getAllNodesValues();
+
+
+
+    //void
 };
 
 #endif //TRABALHOAED2_GRAPH_H
+
+
