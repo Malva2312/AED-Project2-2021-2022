@@ -28,16 +28,29 @@ private:
     std::vector<Node<T, W> * > allNodes;
     unsigned int graphSize;
 
+
 public:
-    Graph(T * firstNodeValue, unsigned int size);
+    Graph(T * firstNodeValue);
     void setAllNotVisited();
 
-    std::vector<T *> getAllNodesValues();
+    std::vector<T *> getAllNodesValues() const;
+    std::vector<Node<T, W> *> getAllNodes() const;
 
+    unsigned int size();
+    void addNode(T * newNodeValue);
+    void addNode(Node <T, W> node);
 
+    int findNodeIndex(T * NodeValue);
+    int findNodeIndex(Node<T, W> node);
 
-    //void
+    bool addEdge(T * originNodeValue, T * destNodeValue, W weight );
+    bool addEdge(Node<T, W> * nodeOrigin, Node<T, W> nodeDest, W weight);
+
+    void removeNode(Node<T, W> node);
+    void removeNode(T * nodeValue);
+
 };
+
 
 #endif //TRABALHOAED2_GRAPH_H
 
