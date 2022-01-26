@@ -1,6 +1,3 @@
-//
-// Created by Utilizador on 24/01/2022.
-//
 
 #ifndef TRABALHOAED2_STOP_H
 #define TRABALHOAED2_STOP_H

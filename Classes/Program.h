@@ -6,6 +6,8 @@
 #define TRABALHOAED2_PROGRAM_H
 
 #include "Coordinates.h"
+#include "Program.h"
+#include "../UI/Menu.h"
 
 class Menu;
 

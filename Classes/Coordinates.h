@@ -7,6 +7,7 @@
 
 
 #include <string>
+#include <cmath>
 
 class Coordinates {
 private:

@@ -1,6 +1,4 @@
-//
-// Created by Utilizador on 24/01/2022.
-//
+
 
 #include "Stop.h"
 
