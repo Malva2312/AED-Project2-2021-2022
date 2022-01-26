@@ -15,7 +15,7 @@ Stop::Stop() {
     this->longitude = 0;
 }
 
-Stop::Stop(string name, string code, string zone, long latitude, long longitude) {
+Stop::Stop(string name, string code, string zone, double latitude, double longitude) {
     this->name = name;
     this->code = code;
     this->zone = zone;
