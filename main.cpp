@@ -60,6 +60,12 @@ int main() {/*
     convivio.addEdge(&nodeVal6, &nodeVal5, 5);
     convivio.addEdge(&nodeVal6, &nodeVal7, 6);
     convivio.addEdge(&nodeVal7, &nodeVal6, 6);
+    /**/
+    convivio.addEdge(&nodeVal1, &nodeVal7, 1);
+    convivio.addEdge(&nodeVal7, &nodeVal1, 1);
+    /* simple test for graph
+     * without weight
+     */
     /*
     convivio.addEdge(&nodeVal1, &nodeVal2, 0);
     convivio.addEdge(&nodeVal1, &nodeVal3, 0);
@@ -75,7 +81,7 @@ int main() {/*
     convivio.addEdge(&nodeVal4, &nodeVal5, 0);
     convivio.addEdge(&nodeVal4, &nodeVal7, 0);
     convivio.addEdge(&nodeVal5, &nodeVal6, 0);
-*/
+    */
 
     vector<string *> teste = convivio.BFS(convivio.getAllNodes().at(0));
 /*
