@@ -36,17 +36,17 @@ std::vector<Node<T, W> *> Graph<T, W>::getAllNodes() const {
 
 template<class T, class W>
 unsigned int Graph<T, W>::size() {
-    return graphSize;
+    return allNodes.size();
 }
 
 template<class T, class W>
-void Graph<T, W>::addNode(Node<T, W> node) {
+void Graph<T, W>::addNode(Node<T, W> * node) {
     allNodes.push_back(node);
-    graphSize = allNodes.size();
+    graphSize = size();
 }
 
 template<class T, class W>
-void Graph<T, W>::addNode(T *newNodeValue) {
+void Graph<T, W>::addNode(T * newNodeValue) {
 
     Node<T, W> *newNode = new Node<T, W>;
     newNode->value = newNodeValue;
@@ -102,10 +102,54 @@ bool Graph<T, W>::addEdge(Node<T, W> *nodeOrigin, Node<T, W> nodeDest, W weight)
 
 template<class T, class W>
 void Graph<T, W>::removeNode(Node<T, W> node) {
-    //TODO
+    //TODO //graphsize = size()
 }
 
 template<class T, class W>
 void Graph<T, W>::removeNode(T *value) {
-    //TODO
+    //TODO //graphsize = size()
 }
+
+template<class T, class W>
+void Graph<T, W>::setVisitedTrue(Node<T, W> * node) {
+    node->visited  = true;
+}
+
+template<class T, class W>
+void Graph<T, W>::addAdjToQueue(Node<T, W> *node, std::queue<Node<T, W>*>  &nodesQueue) {
+    setVisitedTrue(node);
+
+    for (auto it = node->adj.begin(); it != node->adj.end(); it++){
+        if(it->dest->visited == false) {
+            nodesQueue.push(it->dest);
+        }
+    }
+}
+
+template<class T, class W>
+std::vector<T *> Graph<T, W>::BFS(Node<T, W> * node) {
+    //if (findNodeIndex(node) < 0) return {};
+
+    setAllNotVisited();
+
+    std::queue<Node<T, W> *> nodesQueue;
+    std::vector<T * > nodeValuesPath = {node->value};
+
+    addAdjToQueue(node,nodesQueue);
+
+    while (nodesQueue.empty() == false){
+        node = nodesQueue.front();
+        nodesQueue.pop();
+
+        addAdjToQueue(node,  nodesQueue);
+
+        nodeValuesPath.push_back(node->value);
+    }
+    return nodeValuesPath;
+}
+
+template<class T, class W>
+std::vector<T *> Graph<T, W>::valueToBFS(T *nodeValue) {
+    return BFS(allNodes.at(findNodeIndex(nodeValue))); //TODO that is a mockup
+}
+

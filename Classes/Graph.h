@@ -5,6 +5,7 @@
 #include <string>
 #include <list>
 #include <vector>
+#include <queue>
 
 template <class T, class W> struct Node;
 template <class T, class W> struct Edge;
@@ -38,7 +39,7 @@ public:
 
     unsigned int size();
     void addNode(T * newNodeValue);
-    void addNode(Node <T, W> node);
+    void addNode(Node <T, W> * node);
 
     int findNodeIndex(T * NodeValue);
     int findNodeIndex(Node<T, W> node);
@@ -49,6 +50,12 @@ public:
     void removeNode(Node<T, W> node);
     void removeNode(T * nodeValue);
 
+    void setVisitedTrue(Node<T, W> * node);
+
+    std::vector<T *> valueToBFS(T * nodeValue);
+    std::vector<T *> BFS(Node<T, W> * node);
+
+    void addAdjToQueue(Node<T, W> * node, std::queue<Node<T, W>*> &nodesQueue);
 };
 
 
