@@ -8,7 +8,7 @@
 #include "Classes/Graph.h"
 #include "Classes/Graph.cpp"
 
-template <class T, class W> class Graph;
+template <class T> class Graph;
 class Stop;
 using namespace std;
 
@@ -34,7 +34,7 @@ int main(){/*
     string nodeVal7 = "Tiago";
 
 
-    Graph<string, int> convivio (&nodeVal1);
+    Graph<string> convivio (&nodeVal1);
 
     convivio.addNode(&nodeVal2);
     convivio.addNode(&nodeVal3);
@@ -43,7 +43,7 @@ int main(){/*
     convivio.addNode(&nodeVal6);
     convivio.addNode(&nodeVal7);
 
-    convivio.addEdge(&nodeVal1, &nodeVal2, 0);
+    convivio.addEdge(&nodeVal1, &nodeVal2, 1);
     convivio.addEdge(&nodeVal1, &nodeVal3, 0);
 
     convivio.addEdge(&nodeVal2, &nodeVal3, 0);
@@ -64,4 +64,6 @@ int main(){/*
     for (auto it = teste.begin(); it != teste.end(); it++){
         cout << *(*it) << endl;
     }
+
+    convivio.dijkstraForOriginValue(&nodeVal1);
 }

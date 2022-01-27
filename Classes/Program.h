@@ -19,9 +19,9 @@ private:
     Coordinates userCoordinates = Coordinates(0,0);
 
     // TODO: Um graph para o mapa todo, linhas incluidas. Planeias colocar uma variavel dentro de cada Node com a linha?
-    Graph<string, int> oportoMap = NULL;
+    Graph<string> oportoMap = NULL;
     //TODO: vector de graphs para as linhas, pode vir a ser util para planear
-    vector<Graph<string, int>> lines;
+    vector<Graph<string>> lines;
 
     void initializeProgram();
 
