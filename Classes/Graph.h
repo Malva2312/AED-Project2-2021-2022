@@ -61,10 +61,14 @@ public:
 
     void addAdjToQueue(Node<T> * node, std::queue<Node<T>*> &nodesQueue);
 
-    Graph<T>* dijkstraForOriginValue(T * originNodeValue);
-    Graph<T>* dijkstraForOrigin(Node<T> * originNode);
+    std::pair<
+            std::unordered_map<Node<T>*, int * >,
+            std::unordered_map<Node<T>*, Node<T> *>> dijkstraForOriginValue(T * originNodeValue);
+    std::pair<
+            std::unordered_map<Node<T>*, int * >,
+            std::unordered_map<Node<T>*, Node<T> *>>dijkstraForOrigin(Node<T> * originNode);
 
-    void sortMyPriorityNodesQueue(std::vector<std::pair <Node<T*>, int*>> &myPriorityNodesQueue);
+    void sortMyPriorityNodesQueue(std::vector<std::pair <Node<T>*, int*>> &myPriorityNodesQueue);
 };
 
 

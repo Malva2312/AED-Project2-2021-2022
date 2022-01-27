@@ -157,59 +157,92 @@ std::vector<T *> Graph<T>::valueToBFS(T *nodeValue) {
 }
 
 template<class T>
-Graph<T>* Graph<T>::dijkstraForOriginValue(T * originNode) {
+std::pair<
+        std::unordered_map<Node<T>*, int * >,
+        std::unordered_map<Node<T>*, Node<T> *>>
+Graph<T>::dijkstraForOriginValue(T * originNode) {
     int idx = findNodeIndex(originNode);
-    if (idx < 0) return nullptr;
+    //if (idx < 0) return nullptr;
 
     return dijkstraForOrigin(allNodes.at(idx));
 }
 
 template<class T>
-Graph<T> *Graph<T>::dijkstraForOrigin(Node<T> *originNode) {
+std::pair<
+        std::unordered_map<Node<T>*, int * >,
+        std::unordered_map<Node<T>*, Node<T> *>>
+Graph<T>::dijkstraForOrigin(Node<T> *originNode) {
     //int idx = findNodeIndex(*originNode);
     //if (findNodeIndex(originNode) < 0) return nullptr;
 
 
-    std::vector<std::pair <Node<T*>, int*>> myPriorityNodesQueue;
+    std::vector<std::pair <Node<T> *, int*>> myPriorityNodesQueue;
     std::unordered_map<Node<T>*, int * > distMap;
+    std::unordered_map<Node<T>*, Node<T> *> predOfKey;
 
     for (auto it = allNodes.begin(); it != allNodes.end(); it++){
 
         int *x = new int;
         distMap[*it] = x;
 
-        if (* it  == originNode)(*distMap[*it]) = 0;
+        if (* it  == originNode){
+            (*distMap[*it]) = 0;
+            predOfKey[*it] = nullptr;
+        }
         else (*distMap[*it]) = INT_MAX;
 
         (*it)->visited = false;
 
-        std::pair <Node<T*>, int*> temp;
-        //temp.first = *it;
-        //temp.second = x;
-        //auto temp = std::pair <Node<T*>, int*>(*it, nullptr);
+        std::pair <Node<T> *, int*> temp;
+        temp.first = *it;
+        temp.second = x;
+
         myPriorityNodesQueue.push_back(temp);
     }
 
-    sortMyPriorityNodesQueue(myPriorityNodesQueue);
-
-    auto * dijkstra = new Graph<T>(originNode->value);
-
-    //while(!myPriorityNodesQueue.empty()){
-        //auto node = myPriorityNodesQueue.front();
-        //myPriorityNodesQueue.erase(myPriorityNodesQueue.begin());
-        //node.first.visited = true;
-
-    //}
 
 
-    return dijkstra;
+
+    while(!myPriorityNodesQueue.empty()) {
+
+        sortMyPriorityNodesQueue(myPriorityNodesQueue);
+
+        auto node = myPriorityNodesQueue.front();
+        myPriorityNodesQueue.erase(myPriorityNodesQueue.begin());
+        node.first->visited = true;
+
+        for (auto it = node.first->adj.begin(); it != node.first->adj.end() ; it++){
+
+            if(it->dest->visited== false
+            && (*distMap[node.first]) + it->weight < (*distMap[it->dest])){
+                (*distMap[it->dest]) =  (*distMap[node.first]) + it->weight;
+                predOfKey[it->dest] = node.first;
+            }
+        }
+
+    }
+    return
+    std::pair<
+            std::unordered_map<Node<T>*, int * >,
+            std::unordered_map<Node<T>*, Node<T> *>> (distMap, predOfKey);
+
 }
 
 template<class T>
-void Graph<T>::sortMyPriorityNodesQueue(std::vector<std::pair <Node<T*>, int*>> &myPriorityNodesQueue){
+void Graph<T>::sortMyPriorityNodesQueue(std::vector<std::pair <Node<T>*, int*>> &myPriorityNodesQueue){
 
-    std::sort(myPriorityNodesQueue.begin(), myPriorityNodesQueue.end(), [](const std::pair <Node<T*>, int*> a, std::pair <Node<T*>, int*> b){
-        return *(a.second) < *(b.second);
+    std::sort(myPriorityNodesQueue.begin(), myPriorityNodesQueue.end(), [](const std::pair <Node<T>*, int*> a, std::pair <Node<T>*, int*> b){
+        return (*a.second) < (*b.second);
     });
+}
+
+template<class T>
+void Graph<T>::eraseEdge(Node<T> *origin, Node<T> *dest) {
+    for (auto it = origin->adj.begin(); it != origin->adj.end(); it++){
+        if (*it = dest){
+            origin->adj.erase(it);
+            break;
+        }
+    }
 }
 
