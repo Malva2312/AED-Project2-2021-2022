@@ -2,6 +2,7 @@
 // Created by asus on 25/01/2022.
 //
 
+#include <iomanip>
 #include "Menu.h"
 #include "../Classes/Stop.h"
 #include "../Classes/Program.h"
@@ -18,24 +19,22 @@ bool Menu::inVector(char sel,  vector<char> options){
 double Menu::readDoubleInput() {
     double res;
     cin >> res;
+    while(cin.fail()) {
+        cout << "Error, not a double." << std::endl;
+        cin.clear();
+        cin.ignore(256,'\n');
+        cin >> res;
+    }
     cout << endl;
     return res;
 }
 
 Coordinates Menu::readCoordInput() {
-    cout << "Latitude Degrees (integer): ";
-    int newLatDegrees = readIntInput();
-    cout << "Latitude Minutes (integer): ";
-    int newLatMinutes = readIntInput();
-    cout << "Latitude Seconds (integer):  ";
-    double newLatSeconds = readDoubleInput();
-    cout << "Longitude Degrees (integer): ";
-    int newLongDegrees = readIntInput();
-    cout << "Latitude Minutes (integer): ";
-    int newLongMinutes = readIntInput();
-    cout << "Latitude Seconds (integer):  ";
-    double newLongSeconds = readDoubleInput();
-    return Coordinates(newLatDegrees, newLatMinutes, newLatMinutes, newLongDegrees, newLongMinutes, newLongSeconds);
+    cout << "Latitude (double): ";
+    double newLat = readDoubleInput();
+    cout << "Latitude (double): ";
+    double newLong = readDoubleInput();
+    return Coordinates(newLat, newLong);
 }
 
 string Menu::readTextInput() {
@@ -138,6 +137,7 @@ void Menu::askForLocation() {
     cout << "Please insert your coordinates." << endl;
     Coordinates location = readCoordInput();
     this->program->setUserLocation(location);
+    cout << "The selected coordinates were: " << location.toString() << endl;
 }
 
 void Menu::programMenu() {
@@ -149,8 +149,8 @@ void Menu::programMenu() {
         cout << endl;
         cout << "[1] Travel" << endl;
         cout << "[2] See Map" << endl;
-        cout << "[3] Stops Nearby" << endl;
-        cout << "[4] Update Location" << endl;
+        cout << "[3] Stops Near Me" << endl;
+        cout << "[4] Update My Location" << endl;
         cout << "[0] Exit Program" << endl;
         vector<char> opts = {'1', '2', '3', '4', '0'};
         char sel = readOptionInput(opts);
@@ -174,6 +174,7 @@ void Menu::programMenu() {
         }
     }
 }
+
 
 // TODO: This
 void Menu::stopsNearLocation() {
@@ -232,3 +233,17 @@ void Menu::stopsNearLocation() {
     };
 }
 
+
+
+/* TODO: Fica aqui uma lista de features a implementar, a medida que formos fazendo tira-se
+ *
+ * ==============
+ * >> Opcao de listar as melhores viagens (categorizadas por distancia, tempo, menos paragens) apartir da propria localizacao
+ * >> Encontrar a paragem mais proxima da localizacao > Listamos as paragens de varias linhas e a distancia ate elas
+ * >> Opcao de visualizar o mapa: Seria algo como listar as linhas e poder escolher a linha pretendida, depois listar as paragens e poder escolher a paragem
+ * pretendida, quando selecionar a paragem poder ver as paragens mais perto e as paragens/linhas que se conectam a esta.
+ *
+ *
+ *
+ *
+ */

@@ -13,7 +13,7 @@ Program::Program() {
 
 /**
  * Initializes every data necessary for executing tasks and the UI.
- *
+ * TODO: Malva, usa esta funcao para ler os ficheiros e guardar em graphs.
  */
 void Program::initializeProgram() {
     this->menu->programMenu();

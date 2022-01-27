@@ -27,7 +27,7 @@ private:
 
     string readTextInput();
 
-    int readIntInput();
+    static int readIntInput();
 
     Time readTimeInput();
 
