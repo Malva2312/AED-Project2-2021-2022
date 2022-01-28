@@ -179,7 +179,6 @@ void Menu::programMenu() {
 // TODO: This
 void Menu::stopsNearLocation() {
     vector<Stop> list;
-    cout << "AYO";
     //TODO: Calculate every stop distance to user and put them in order to this list.
     int order = 0;
     while(true) {

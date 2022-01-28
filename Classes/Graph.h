@@ -34,6 +34,7 @@ private:
 
 
 public:
+    Graph();
     Graph(T * firstNodeValue);
     void setAllNotVisited();
 
@@ -67,9 +68,11 @@ public:
             std::unordered_map<Node<T>*, Node<T> *>> dijkstraForOriginValue(T * originNodeValue);
     std::pair<
             std::unordered_map<Node<T>*, double * >,
-            std::unordered_map<Node<T>*, Node<T> *>>dijkstraForOrigin(Node<T> * originNode);
+            std::unordered_map<Node<T>*, Node<T> *>> dijkstraForOrigin(Node<T> * originNode);
 
     void sortMyPriorityNodesQueue(std::vector<std::pair <Node<T>*, double *>> &myPriorityNodesQueue);
+
+    Graph<T> prims(Node<T> * originNode, bool dir);
 };
 
 

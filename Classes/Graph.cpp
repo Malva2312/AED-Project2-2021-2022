@@ -3,6 +3,11 @@
 #include "Graph.h"
 
 template <class T>
+Graph<T>::Graph(){
+    graphSize = 0;
+}
+
+template <class T>
 Graph<T>::Graph(T * firstNodeValue){
 
     auto *firstNode = new Node<T>;
@@ -246,3 +251,29 @@ void Graph<T>::eraseEdge(Node<T> *origin, Node<T> *dest) {
     }
 }
 
+template <class T>
+Graph<T> Graph<T>::prims(Node<T> * originNode, bool dir){
+
+    std::vector<std::pair <Node<T> *, double*>> myPriorityNodesQueue;
+    std::unordered_map<Node<T>*, double * > distMap;
+
+    for (auto it = allNodes.begin(); it != allNodes.end(); it++){
+
+        double *x = new double;
+        distMap[*it] = x;
+
+        (*distMap[*it]) = DBL_MAX;
+
+        (*it)->visited = false;
+
+        std::pair <Node<T> *, double *> temp;
+        temp.first = *it;
+        temp.second = x;
+
+        myPriorityNodesQueue.push_back(temp);
+    }
+
+    (*distMap[originNode]) = 0.0;
+    //TODO:prim's algorithm
+    //Graph::Graph<>()
+}

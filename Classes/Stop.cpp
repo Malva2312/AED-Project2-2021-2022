@@ -22,7 +22,8 @@ Stop::Stop(string name, string code, string zone, double latitude, double longit
     this->longitude = longitude;
 }
 
-vector<vector<string>> Stop::read(string filepath) const{
+vector<vector<string>> Stop::read_stops(string filepath) const{
+
     ifstream file(filepath);
 
     if(!file.good()){return {};}
@@ -39,7 +40,8 @@ vector<vector<string>> Stop::read(string filepath) const{
 }
 
 vector<string> Stop::read_stop(string line) const{
-
+    //Code,Name,Zone,Latitude,Longitude
+    //Reads this: 1AL2,AV.ALIADOS,PRT1,41.14954216,-8.610023615
     vector<string> data;
     stringstream ss(line);
     string word;
@@ -47,7 +49,6 @@ vector<string> Stop::read_stop(string line) const{
     while (getline(ss, word, ',')){
         data.push_back(word);
     }
-
     return data;
 }
 

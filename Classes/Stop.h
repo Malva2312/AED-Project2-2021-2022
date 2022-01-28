@@ -16,7 +16,7 @@ public:
     Stop();
     Stop(std::string name, std::string code, std::string zone, double latitude, double longitude);
 
-    std::vector<std::vector<std::string>> read(std::string filepath) const;
+    std::vector<std::vector<std::string>> read_stops(std::string filepath) const;
     std::vector<std::string> read_stop(std::string line) const;
 
     std::string getName();

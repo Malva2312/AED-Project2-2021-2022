@@ -8,9 +8,11 @@
 #include "Coordinates.h"
 #include "Program.h"
 #include "../UI/Menu.h"
-#include "../Classes/Graph.h"
+#include "Graph.h"
+
 
 class Menu;
+class Stop;
 
 class Program {
 private:
@@ -18,10 +20,10 @@ private:
 
     Coordinates userCoordinates = Coordinates(0,0);
 
+    vector<Stop> stops;
+
     // TODO: Um graph para o mapa todo, linhas incluidas. Planeias colocar uma variavel dentro de cada Node com a linha?
-    Graph<string> oportoMap = NULL;
-    //TODO: vector de graphs para as linhas, pode vir a ser util para planear
-    vector<Graph<string>> lines;
+    static Graph<Stop> oportoMap(); //= new Graph<Stop> (new Stop());
 
     void initializeProgram();
 
