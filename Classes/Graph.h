@@ -8,6 +8,7 @@
 #include <queue>
 #include <unordered_map>
 #include <algorithm>
+#include "float.h"
 
 template <class T> struct Node;
 template <class T> struct Edge;
@@ -22,7 +23,7 @@ template <class T> struct Node{
 
 template <class T> struct Edge{
     Node<T> *dest;
-    int weight;
+    double weight;
 };
 
 template <class T>
@@ -46,8 +47,8 @@ public:
     int findNodeIndex(T * NodeValue);
     int findNodeIndex(Node<T> node);
 
-    bool addEdge(T * originNodeValue, T * destNodeValue, int weight );
-    bool addEdge(Node<T> * nodeOrigin, Node<T> nodeDest, int weight);
+    bool addEdge(T * originNodeValue, T * destNodeValue, double weight );
+    bool addEdge(Node<T> * nodeOrigin, Node<T> nodeDest, double weight);
 
     void removeNode(Node<T> node);
     void removeNode(T * nodeValue);
@@ -62,13 +63,13 @@ public:
     void addAdjToQueue(Node<T> * node, std::queue<Node<T>*> &nodesQueue);
 
     std::pair<
-            std::unordered_map<Node<T>*, int * >,
+            std::unordered_map<Node<T>*, double * >,
             std::unordered_map<Node<T>*, Node<T> *>> dijkstraForOriginValue(T * originNodeValue);
     std::pair<
-            std::unordered_map<Node<T>*, int * >,
+            std::unordered_map<Node<T>*, double * >,
             std::unordered_map<Node<T>*, Node<T> *>>dijkstraForOrigin(Node<T> * originNode);
 
-    void sortMyPriorityNodesQueue(std::vector<std::pair <Node<T>*, int*>> &myPriorityNodesQueue);
+    void sortMyPriorityNodesQueue(std::vector<std::pair <Node<T>*, double *>> &myPriorityNodesQueue);
 };
 
 

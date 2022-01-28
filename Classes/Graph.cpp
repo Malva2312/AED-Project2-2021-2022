@@ -72,7 +72,7 @@ int Graph<T>::findNodeIndex(Node<T> node) {
 }
 
 template<class T>
-bool Graph<T>::addEdge(T *nodeValue, T *  destNodeValue, int weight) {
+bool Graph<T>::addEdge(T *nodeValue, T *  destNodeValue, double weight) {
     int idxOrigin = findNodeIndex(nodeValue);
     int idxDest = findNodeIndex(destNodeValue);
 
@@ -88,7 +88,7 @@ bool Graph<T>::addEdge(T *nodeValue, T *  destNodeValue, int weight) {
 }
 
 template<class T>
-bool Graph<T>::addEdge(Node<T> *nodeOrigin, Node<T> nodeDest, int weight) {
+bool Graph<T>::addEdge(Node<T> *nodeOrigin, Node<T> nodeDest, double weight) {
     //int idxOrigin = findNodeIndex(nodeOrigin);
     //int idxDest = findNodeIndex(nodeOrigin);
 
@@ -158,7 +158,7 @@ std::vector<T *> Graph<T>::valueToBFS(T *nodeValue) {
 
 template<class T>
 std::pair<
-        std::unordered_map<Node<T>*, int * >,
+        std::unordered_map<Node<T>*, double * >,
         std::unordered_map<Node<T>*, Node<T> *>>
 Graph<T>::dijkstraForOriginValue(T * originNode) {
     int idx = findNodeIndex(originNode);
@@ -169,31 +169,31 @@ Graph<T>::dijkstraForOriginValue(T * originNode) {
 
 template<class T>
 std::pair<
-        std::unordered_map<Node<T>*, int * >,
+        std::unordered_map<Node<T>*, double * >,
         std::unordered_map<Node<T>*, Node<T> *>>
 Graph<T>::dijkstraForOrigin(Node<T> *originNode) {
     //int idx = findNodeIndex(*originNode);
     //if (findNodeIndex(originNode) < 0) return nullptr;
 
 
-    std::vector<std::pair <Node<T> *, int*>> myPriorityNodesQueue;
-    std::unordered_map<Node<T>*, int * > distMap;
+    std::vector<std::pair <Node<T> *, double*>> myPriorityNodesQueue;
+    std::unordered_map<Node<T>*, double * > distMap;
     std::unordered_map<Node<T>*, Node<T> *> predOfKey;
 
     for (auto it = allNodes.begin(); it != allNodes.end(); it++){
 
-        int *x = new int;
+        double *x = new double;
         distMap[*it] = x;
 
         if (* it  == originNode){
             (*distMap[*it]) = 0;
             predOfKey[*it] = nullptr;
         }
-        else (*distMap[*it]) = INT_MAX;
+        else (*distMap[*it]) = DBL_MAX;
 
         (*it)->visited = false;
 
-        std::pair <Node<T> *, int*> temp;
+        std::pair <Node<T> *, double *> temp;
         temp.first = *it;
         temp.second = x;
 
@@ -223,15 +223,15 @@ Graph<T>::dijkstraForOrigin(Node<T> *originNode) {
     }
     return
     std::pair<
-            std::unordered_map<Node<T>*, int * >,
+            std::unordered_map<Node<T>*, double * >,
             std::unordered_map<Node<T>*, Node<T> *>> (distMap, predOfKey);
 
 }
 
 template<class T>
-void Graph<T>::sortMyPriorityNodesQueue(std::vector<std::pair <Node<T>*, int*>> &myPriorityNodesQueue){
+void Graph<T>::sortMyPriorityNodesQueue(std::vector<std::pair <Node<T>*, double *>> &myPriorityNodesQueue){
 
-    std::sort(myPriorityNodesQueue.begin(), myPriorityNodesQueue.end(), [](const std::pair <Node<T>*, int*> a, std::pair <Node<T>*, int*> b){
+    std::sort(myPriorityNodesQueue.begin(), myPriorityNodesQueue.end(), [](const std::pair <Node<T>*, double*> a, std::pair <Node<T>*, double*> b){
         return (*a.second) < (*b.second);
     });
 }
