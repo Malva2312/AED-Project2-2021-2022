@@ -78,11 +78,13 @@ public:
 
     std::pair<
             double,
-            std::unordered_map<T, T>> prims(T start, bool undir = true);
+            std::unordered_map<T, T>> prims(T start);
 
     std::pair<
             double,
-            std::unordered_map<T, T>> prims(Node<T> start, bool undir = true);
+            std::unordered_map<T, T>> prims(Node<T> start);
+
+    std::vector<std::pair<T, double>> pathValues(T nodeValue , T end);
 };
 
 

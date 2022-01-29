@@ -48,7 +48,7 @@ public:
     void initializeProgram();
 
     std::vector<Stop> getAllStops();
-    std::vector<Stop * >getAllStopsPtr();
+    std::vector<Stop *>getAllStopsPtr();
 
     void setUserLocation(Coordinates coordinates);
 
@@ -67,6 +67,7 @@ public:
 
     Line getLineByCode(std::string code);
 
+    vector<Line> getLines();
 
     vector<Stop> shortestPath(MyGraph<Stop> graph, Stop origin, Stop dest);
 

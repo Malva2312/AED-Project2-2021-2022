@@ -225,20 +225,20 @@ template<class T>
 std::pair<
         double,
         std::unordered_map<T, T>>
-MyGraph<T>::prims(T start, bool undir) {
+MyGraph<T>::prims(T start) {
     int idx = findNodeIndex(start);
     if(idx < 0) return std::pair<
                         double,
                         std::unordered_map<T, T>>(0, std::unordered_map<T, T>());
 
-    return prims(allNodes.at(idx), undir);
+    return prims(allNodes.at(idx));
 }
 
 template<class T>
 std::pair<
         double,
         std::unordered_map<T, T>>
-MyGraph<T>::prims(Node<T> start, bool undir) {
+MyGraph<T>::prims(Node<T> start) {
     int idx = findNodeIndex(start);
     if(idx < 0) return std::pair<
                 double,
@@ -281,6 +281,31 @@ MyGraph<T>::prims(Node<T> start, bool undir) {
             std::unordered_map<T, T>>(cost, predOfKey);
 }
 
+
+template <class T>
+std::vector<std::pair<T, double>> MyGraph<T>::pathValues(T start, T end){  //  paragem <-> distancia à origem
+    int idx = findNodeIndex(start);
+    int idxEnd = findNodeIndex(end);
+    if (idx <0 || idxEnd < 0) return std::vector<std::pair<T, double>>();
+
+    auto dijks = dijkstraForOrigin(allNodes.at(idx));  //map<Node*,distância double > map<Node*, Node* do precedente>
+    auto nodeDist = dijks.first;
+    auto predOfNode = dijks.second;
+
+    Node<T> * endPtr = getAllNodesPtr().at(idxEnd);
+
+    std::vector<std::pair<T, double>> res;
+
+    while (predOfNode[endPtr] != nullptr){
+        res.template emplace_back(endPtr->value, nodeDist[endPtr]);
+        endPtr = predOfNode[endPtr];
+    }
+
+    res.template emplace_back(endPtr->value, 0);
+    std::reverse(res.begin(), res.end());
+
+    return res;
+}
 /*
 template<class T>
 std::vector<T *> MyGraph<T>::getAllNodesValues() const {

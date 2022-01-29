@@ -29,7 +29,7 @@ public:
     std::string toString(int precison = 10) const;
 
     /**
-     * Subtraction between two Coordinates objects.
+     * Subtraction between two Coordinates objects in meters.
      * @param coord
      * @return
      */

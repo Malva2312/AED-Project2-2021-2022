@@ -2,7 +2,7 @@
 #include "MyGraph.h"
 
 
-//#include "Classes/Program.h"
+#include "Classes/Program.h"
 /*
 #include "MyGraph.h"
 #include "MyGraph.cpp"
@@ -16,6 +16,14 @@ int main() {
 
     Program prog = Program();
     prog.initializeProgram();
+/*
+    int min = 0;
+    auto temp = prog.getAllStops();
+    for(unsigned idx = 0;idx < temp.size(); idx++){
+        if(temp.at(idx).getLines().size() > 1) min = min+1;
+    }
+    cout << endl << min << endl;
+    */
 /*
     //MyGraph<Stop> graph1 = prog.oportoMap_minDistance();
     Stop * stop1 = prog.findStopPtr("1AL2");
@@ -83,21 +91,21 @@ int main() {
 
     convivio.addEdge(tiago, jorge,4);
     //convivio.addEdge(jorge, tiago,4);
-
+/*
     auto vec = convivio.valueToBFS(malva);
 
     for (auto it = vec.begin(); it != vec.end(); it++){
         cout << (*it)->value << endl;
     }
-
+*/
     //convivio.getAllNodesValues();
     //auto vec = convivio.getAllNodesPtr();
-    auto primo = convivio.prims(malva);
+    //auto primo = convivio.prims(malva);
 
-    cout << primo.first;
+    //cout << primo.first;
 
     //auto dij = convivio.dijkstraForOriginValue(malva);
-
+/*
     for(auto it = vec.begin(); it != vec.end(); it++){
         if (primo.second[(*it)->value] == (*it)->value ){
             cout << (*it)->value << " --- " << (*it)->value  << " --- " << "origin" << endl;
@@ -106,6 +114,10 @@ int main() {
             cout << (*it)->value << " --- " << primo.second[(*it)->value]  <<endl;// << " --- " << dij.second[*it]->value << endl;
         }
     }
-*/
+
+    auto path = convivio.pathValues(malva, ruben);
+    for (auto it : path){
+        cout << it.first<< " ---" << it.second <<endl;
+    }*/
     return 0;
 }

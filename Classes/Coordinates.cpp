@@ -15,7 +15,10 @@ Coordinates::Coordinates(double latitude_, double longitude_) {
     this->longitude = longitude_;
 }
 
-string Coordinates::toString(int precision) const {
+string Coordinates::toString(int precision
+
+
+) const {
     ostringstream resLat;
     resLat << fixed;
     resLat << setprecision(precision);

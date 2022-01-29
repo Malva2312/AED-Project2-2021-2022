@@ -12,6 +12,8 @@
 #include "../Classes/Time.h"
 
 class Program;
+class Stop;
+struct Connection;
 
 using namespace std;
 
@@ -37,7 +39,11 @@ private:
 
     void askForLocation();
 
-    void stopsNearLocation();
+    Stop* stopsNearLocation();
+
+    string stopSelector(string lineName_, std::vector<Connection> cons_);
+
+    string lineSelector();
 
 public:
     Menu(Program *program_);
@@ -49,6 +55,7 @@ public:
     bool searchStopName();
 
     bool searchStopCode();
+
 };
 
 

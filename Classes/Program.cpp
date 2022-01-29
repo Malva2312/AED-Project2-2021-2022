@@ -2,7 +2,6 @@
 // Created by asus on 25/01/2022.
 //
 
-
 #include "Program.h"
 
 
@@ -75,7 +74,7 @@ void Program::initializeProgram() {
         this->lines.push_back(thisLine);
     }
 
-    //this->menu.programMenu();
+    this->menu.programMenu();
 }
 
 void Program::setUserLocation(Coordinates coordinates) {
@@ -228,6 +227,10 @@ vector<Stop> Program::shortestPath(MyGraph<Stop> graph, Stop origin, Stop dest){
 
 std::vector<Stop> Program::getAllStops() {
     return allStops;
+}
+
+vector<Line> Program::getLines() {
+    return this->lines;
 }
 
 std::vector<Stop *> Program::getAllStopsPtr() {
