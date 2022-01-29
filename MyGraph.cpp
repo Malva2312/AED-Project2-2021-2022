@@ -221,6 +221,65 @@ std::vector<Node<T> *> MyGraph<T>::getAllNodesPtr() {
     return res;
 }
 
+template<class T>
+std::pair<
+        double,
+        std::unordered_map<T, T>>
+MyGraph<T>::prims(T start, bool undir) {
+    int idx = findNodeIndex(start);
+    if(idx < 0) return std::pair<
+                        double,
+                        std::unordered_map<T, T>>(0, std::unordered_map<T, T>());
+
+    return prims(allNodes.at(idx), undir);
+}
+
+template<class T>
+std::pair<
+        double,
+        std::unordered_map<T, T>>
+MyGraph<T>::prims(Node<T> start, bool undir) {
+    int idx = findNodeIndex(start);
+    if(idx < 0) return std::pair<
+                double,
+                std::unordered_map<T, T>>(0, std::unordered_map<T, T>());
+
+    setAllNotVisited();
+
+    double cost = 0;
+    std::unordered_map<T, T> predOfKey;
+    std::vector<std::pair<T, Edge<T>>> availableEdges;
+
+    allNodes.at(idx).visited = true;
+    start = allNodes.at(idx);
+    start.visited = true;
+    T org = start.value;
+    predOfKey[org] = org;  //org == predOfKey[org]
+
+    for(auto it : start.adj) availableEdges.template emplace_back(org, it);
+
+    while (!availableEdges.empty()){
+        sort(availableEdges.begin(), availableEdges.end(), []
+            (const std::pair<T, Edge<T>> A, const std::pair<T, Edge<T>> B){
+                return A.second.weight < B.second.weight;
+        });
+
+        Edge<T> edge = availableEdges.front().second;
+        T org = availableEdges.front().first;
+        availableEdges.erase(availableEdges.begin());
+
+        if(edge.dest->visited == false){
+            cost += edge.weight;
+            edge.dest->visited = true;
+            predOfKey[edge.dest->value] = org;
+            for(auto it : edge.dest->adj) availableEdges.template emplace_back(edge.dest->value, it);
+        }
+    }
+
+    return std::pair<
+            double,
+            std::unordered_map<T, T>>(cost, predOfKey);
+}
 
 /*
 template<class T>

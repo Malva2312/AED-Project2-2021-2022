@@ -74,6 +74,15 @@ public:
 
 
     void sortMyPriorityNodesQueue(std::vector<std::pair<Node<T> *, double*>> &myPriorityNodesQueue);
+
+
+    std::pair<
+            double,
+            std::unordered_map<T, T>> prims(T start, bool undir = true);
+
+    std::pair<
+            double,
+            std::unordered_map<T, T>> prims(Node<T> start, bool undir = true);
 };
 
 

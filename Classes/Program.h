@@ -30,6 +30,7 @@ struct Line {
     std::string code;
     std::string name;
     vector<Connection> connections;
+    bool available = true;
 };
 
 class Program {
@@ -58,8 +59,8 @@ public:
     Stop findStop(string code); //BinarySearch so para o professor gostar lololololol
 
     // TODO: Um graph para o mapa todo, linhas incluidas. Planeias colocar uma variavel dentro de cada Node com a linha?
-    MyGraph<Stop> oportoMap_distance(); //= new Graph<Stop> (new Stop());
-    MyGraph<Stop> oportoMap_stops();
+    MyGraph<Stop> oportoMap_minDist(); //= new Graph<Stop> (new Stop());
+    MyGraph<Stop> oportoMap_minStops();
 
 
     vector<Stop *> closestStops();
@@ -69,6 +70,13 @@ public:
 
     vector<Stop> shortestPath(MyGraph<Stop> graph, Stop origin, Stop dest);
 
+    MyGraph<Stop> loadStopsToNodes(MyGraph<Stop> &emptyGraph);
+
+    MyGraph<Stop> loadLineEdges_minStops(MyGraph<Stop> &graph);
+    void loadConnectionsEdges_minStops(MyGraph<Stop> &graph, Line line);
+
+    MyGraph<Stop> loadLineEdges_minDist(MyGraph<Stop> &graph);
+    void loadConnectionsEdges_minDist(MyGraph<Stop> &graph, Line line);
 };
 
 

@@ -75,7 +75,7 @@ void Program::initializeProgram() {
         this->lines.push_back(thisLine);
     }
 
-    this->menu.programMenu();
+    //this->menu.programMenu();
 }
 
 void Program::setUserLocation(Coordinates coordinates) {
@@ -86,37 +86,58 @@ Coordinates Program::getUserLocation() {
     return this->userCoordinates;
 }
 
-MyGraph<Stop> Program::oportoMap_distance(){
-    MyGraph<Stop> newGraph = MyGraph<Stop>();
+MyGraph<Stop> Program::loadStopsToNodes(MyGraph<Stop> &emptyGraph){
+
     for (Stop stp : this->allStops)
-        newGraph.addNode(stp);
+        emptyGraph.addNode(stp);
+    return emptyGraph;
+}
+
+MyGraph<Stop> Program::loadLineEdges_minDist(MyGraph<Stop> &graph){
 
     for (Line line : this->lines) {
-        for (Connection con : line.connections) {
-            Stop org = findStop(con.org);
-            Stop dest = findStop(con.dest);
-            if (dest.getCode() == "" || org.getCode() == "")
-                continue;
-            newGraph.addEdge(org, dest, org.getCoordinates()-dest.getCoordinates());
-        }
+        if (line.available){loadConnectionsEdges_minDist(graph, line);}
     }
+    return graph;
+}
+void Program::loadConnectionsEdges_minDist(MyGraph<Stop> &graph, Line line){
+    for (Connection con : line.connections) {
+        Stop org = findStop(con.org);
+        Stop dest = findStop(con.dest);
+        if (dest.getCode() == "" || org.getCode() == "")
+            continue;
+        graph.addEdge(org, dest, org.getCoordinates() - dest.getCoordinates());
+    }
+}
+MyGraph<Stop> Program::oportoMap_minDist(){
+    MyGraph<Stop> newGraph = MyGraph<Stop>();
+    loadStopsToNodes(newGraph);
+
+    loadLineEdges_minDist(newGraph);
     return newGraph;
 }
 
-MyGraph<Stop> Program::oportoMap_stops(){
-    MyGraph<Stop> newGraph = MyGraph<Stop>();
-    for (Stop stp : this->allStops)
-        newGraph.addNode(stp);
+MyGraph<Stop> Program::loadLineEdges_minStops(MyGraph<Stop> &graph){
 
     for (Line line : this->lines) {
-        for (Connection con : line.connections) {
-            Stop org = findStop(con.org);
-            Stop dest = findStop(con.dest);
-            if (dest.getCode() == "" || org.getCode() == "")
-                continue;
-            newGraph.addEdge(org, dest, 1);
-        }
+        if (line.available){loadConnectionsEdges_minStops(graph, line);}
     }
+    return graph;
+}
+void Program::loadConnectionsEdges_minStops(MyGraph<Stop> &graph, Line line){
+    for (Connection con : line.connections) {
+        Stop org = findStop(con.org);
+        Stop dest = findStop(con.dest);
+        if (dest.getCode() == "" || org.getCode() == "")
+            continue;
+        graph.addEdge(org, dest, 1);
+    }
+}
+MyGraph<Stop> Program::oportoMap_minStops(){
+    MyGraph<Stop> newGraph = MyGraph<Stop>();
+    loadStopsToNodes(newGraph);
+
+    loadLineEdges_minStops(newGraph);
     return newGraph;
 }
 
@@ -179,10 +200,11 @@ Line Program::getLineByCode(std::string code) {
     return {"", ""};
 }
 
+/*
 void addLineToGraph(string file_line){
 
 }
-
+*/
 vector<Stop> Program::shortestPath(MyGraph<Stop> graph, Stop origin, Stop dest){
     //graph.dijkstraForOriginValue(origin);
     auto var = graph.dijkstraForOriginValue(origin);
