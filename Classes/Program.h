@@ -84,6 +84,8 @@ public:
     vector<Stop *> closestInRange(Coordinates coord, double range);
 
     MyGraph<Stop> choosePath(int x);
+
+    pair<double, pair<Stop, Stop>> bestPath(Coordinates orig, Coordinates dest, double rangeStart, double rangeEnd, int opt);
 };
 
 

@@ -273,10 +273,23 @@ MyGraph<Stop> Program::choosePath(int x){
     }
 }
 
-void Program::bestPath(){
-    MyGraph<Stop> graph = choosePath(1);
-    for(auto it: shortestPath(graph,) ){
-        pathValues();
+pair<double, pair<Stop, Stop>> Program::bestPath(Coordinates orig, Coordinates dest, double rangeStart, double rangeEnd, int opt){
+    MyGraph<Stop> graph = choosePath(opt);
+    vector<Stop *> allStarts = closestInRange(orig, rangeStart);
+    vector<Stop *> allEnds = closestInRange(dest, rangeEnd);
+
+    pair<double, pair<Stop, Stop>> minDis;
+
+    minDis.first = DBL_MAX;
+
+    for(Stop* i : allStarts){
+        for(Stop* ii : allEnds){
+            if (graph.pathValues(*i, *ii).at(0).second < minDis.first){
+                minDis.second.first = *i;
+                minDis.second.second = *ii;
+            }
+        }
     }
+    return pair<double, pair<Stop, Stop>>;
 }
 
