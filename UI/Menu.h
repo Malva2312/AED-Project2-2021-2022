@@ -13,7 +13,6 @@
 
 class Program;
 class Stop;
-struct Connection;
 
 using namespace std;
 
@@ -39,11 +38,20 @@ private:
 
     void askForLocation();
 
-    Stop* stopsNearLocation();
+    string stopsNearLocation(bool viewMode_);
 
-    string stopSelector(string lineName_, std::vector<Connection> cons_);
+    string stopSelecting();
+
+    string stopSelector(string lineName_);
 
     string lineSelector();
+
+    void stopInfo(Stop* stop_);
+
+    void seeMap();
+
+    void travel(string orgCode, string destCode);
+
 
 public:
     Menu(Program *program_);

@@ -177,6 +177,15 @@ Stop Program::findStop(string code){
     return {"", "", "", Coordinates(0, 0)};
 }
 
+
+Stop Program::findStopByName(string name){
+    for (auto stop: allStops) {
+        if(stop.getName() == name)
+            return stop;
+    }
+    return {"", "", "", Coordinates(0, 0)};
+}
+
 vector<Stop *> Program::closestStops(){
     Coordinates userCoord = this->getUserLocation();
 
@@ -241,3 +250,33 @@ std::vector<Stop *> Program::getAllStopsPtr() {
     }
     return temp;
 }
+
+vector<Stop * > Program::closestInRange(Coordinates coord, double range){
+    vector<Stop *> orderedByDistance = closestStops();
+    vector<Stop *> res;
+
+    copy_if(closestStops().begin(), closestStops().end(), back_inserter(res), [&coord,&range](const Stop * A){
+        return Stop().getCoordinates() - coord <= range;
+    });
+    return res;
+}
+
+
+MyGraph<Stop> Program::choosePath(int x){
+    switch (x) {
+        case 1:
+            return oportoMap_minDist();
+        case 2:
+            return oportoMap_minStops();
+        default:
+            return MyGraph<Stop>();
+    }
+}
+
+void Program::bestPath(){
+    MyGraph<Stop> graph = choosePath(1);
+    for(auto it: shortestPath(graph,) ){
+        pathValues();
+    }
+}
+

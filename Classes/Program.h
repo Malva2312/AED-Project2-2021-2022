@@ -58,6 +58,8 @@ public:
 
     Stop findStop(string code); //BinarySearch so para o professor gostar lololololol
 
+    Stop findStopByName(string name);
+
     // TODO: Um graph para o mapa todo, linhas incluidas. Planeias colocar uma variavel dentro de cada Node com a linha?
     MyGraph<Stop> oportoMap_minDist(); //= new Graph<Stop> (new Stop());
     MyGraph<Stop> oportoMap_minStops();
@@ -78,6 +80,10 @@ public:
 
     MyGraph<Stop> loadLineEdges_minDist(MyGraph<Stop> &graph);
     void loadConnectionsEdges_minDist(MyGraph<Stop> &graph, Line line);
+
+    vector<Stop *> closestInRange(Coordinates coord, double range);
+
+    MyGraph<Stop> choosePath(int x);
 };
 
 

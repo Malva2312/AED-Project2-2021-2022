@@ -85,6 +85,10 @@ std::string Stop::getCode() {
     return this->code;
 }
 
+std::string Stop::getZone() {
+    return this->zone;
+}
+
 std::vector<std::string>Stop:: getLines() {
     return this->line;
 }

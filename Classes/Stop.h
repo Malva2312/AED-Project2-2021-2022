@@ -32,6 +32,8 @@ public:
 
     std::string getCode();
 
+    std::string getZone();
+
     std::vector<std::string> getLines();
 
     Coordinates getCoordinates() const;
