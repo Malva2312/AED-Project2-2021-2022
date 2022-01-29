@@ -44,6 +44,11 @@ public:
 
     void programMenu();
 
+    bool insertCoordinates();
+
+    bool searchStopName();
+
+    bool searchStopCode();
 };
 
 

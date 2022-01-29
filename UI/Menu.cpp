@@ -32,7 +32,7 @@ double Menu::readDoubleInput() {
 Coordinates Menu::readCoordInput() {
     cout << "Latitude (double): ";
     double newLat = readDoubleInput();
-    cout << "Latitude (double): ";
+    cout << "Longitude (double): ";
     double newLong = readDoubleInput();
     return Coordinates(newLat, newLong);
 }
@@ -134,10 +134,77 @@ Menu::Menu(Program *program_) {
 
 
 void Menu::askForLocation() {
-    cout << "Please insert your coordinates." << endl;
-    Coordinates location = readCoordInput();
-    this->program->setUserLocation(location);
-    cout << "The selected coordinates were: " << location.toString() << endl;
+    bool validCoord = false;
+    while(!validCoord) {
+        cout<< endl;
+        cout << "[1] Insert your coordinates" << endl;
+        cout << "[2] Search with stop name" << endl;
+        cout << "[3] Search with stop code" << endl;
+        //cout << "[0]  Exit Program" << endl;
+
+        vector<char> opts = {'1', '2', '3'};
+
+        char sel = readOptionInput(opts);
+        switch (sel) {
+            case '1':
+                validCoord = insertCoordinates();
+                break;
+            case '2':
+                validCoord = searchStopName();
+                break;
+            case '3':
+                validCoord = searchStopCode();
+                break;
+        }
+    }
+    cout << "The selected coordinates were: " << program->getUserLocation().toString() << endl;
+    Stop * closest = program->closestStops().at(0);
+    cout << "Closest stop: " << closest->getCode() << "  -  " << closest->getName() << endl;
+    cout << "At distance: " << closest->getCoordinates()-program->getUserLocation() << "m" << endl;
+}
+
+bool Menu::insertCoordinates(){
+    try {
+        cout << "Please insert your coordinates." << endl;
+        Coordinates location = readCoordInput();
+        this->program->setUserLocation(location);
+        return true;
+    }
+    catch (...){
+        return false;
+    }
+}
+
+bool Menu::searchStopName(){
+    cout<<"Please insert stop name." << endl;
+    string name = readTextInput();
+    vector<Stop *> vec = program->getAllStopsPtr();
+    for (auto it = vec.begin(); it != vec.end(); it++){
+        if((*it)->getName() == name) {
+            program->setUserLocation((*it)->getCoordinates());
+            return true;
+        }
+    }
+    cout << "Stop not found"<< endl;
+    cout << "Try again."<< endl;
+    return false;
+}
+
+bool Menu::searchStopCode(){
+    Coordinates coord =Coordinates(0,0);
+
+    cout<<"Please insert stop code." << endl;
+    string code = readTextInput();
+    Coordinates myCoord =  program->findStop(code).getCoordinates();
+
+    if (myCoord == coord){
+        cout << "Stop not found"<< endl;
+        cout << "Try again."<< endl;
+        return false;
+    }
+
+    program->setUserLocation(myCoord);
+    return true;
 }
 
 void Menu::programMenu() {
@@ -178,15 +245,92 @@ void Menu::programMenu() {
 
 // TODO: This
 void Menu::stopsNearLocation() {
-    vector<Stop> list;
-    //TODO: Calculate every stop distance to user and put them in order to this list.
+    vector<Stop *> list = program->closestStops();
     int order = 0;
     while(true) {
         cout << endl << endl << "   NEARBY STOPS   " << endl << endl;
         vector<char> opts;
         int max = list.size();
         for (int i = 0;  i < max; i++) {
-            cout << "[" << i << "] " << list[order + i].getName() << endl;
+            string connectors;
+            if (list[order + i]->getLines().size() > 1)
+                for (int j = list[order + i]->getLines().size() -1; j > -1; --j) {
+                    connectors += program->getLineByCode(list[order + i]->getLines().at(0)).name;
+                    if (j == 1)
+                        connectors += " and ";
+                    else if (j>1)
+                        connectors += ", ";
+                }
+            else {
+                connectors = program->getLineByCode(list[order + i]->getLines().at(0)).name;
+            }
+            cout << "[" << i << "] Stop: " << list[order + i]->getName() << " Connects with : " << connectors << endl;
+            opts.push_back(48 + i);
+        }
+        if (list.size() > 10) cout << endl << "<" << to_string(order / 10) << "/" << to_string(list.size() / 10) << ">" << endl << endl;
+        if (order != 0){
+            opts.push_back('B');
+            opts.push_back('b');
+            cout << "B - Previous page " << endl;
+        }
+        if (list.size() - order > 10){
+            opts.push_back('N');
+            opts.push_back('n');
+            cout << "N - Next page " << endl;
+        }
+        cout << "Insert the number to select a stop." << endl;
+        opts.push_back('X');
+        opts.push_back('x');
+        cout << "X - Back to Menu" << endl;
+
+        char sel = readOptionInput(opts);
+        if (sel > 47 && sel < 58){
+            while (true) {
+                cout << endl << "[0] Travel To " << list[order + (sel-48)]->getName() << endl;
+                cout << "[1] Travel From " << list[order + (sel-48)]->getName() << endl;
+                cout << "[X] Back to Modify List" << endl;
+                cout << endl << "Select what you would like to modify";
+                char sel2 = readOptionInput({'0', '1', 'X', 'x'});
+                if (sel2 == '0') {
+                    cout << "Work in progress" << endl;
+                } else if (sel2 == '1') {
+                    cout << "Work in progress" << endl;
+                } else if (sel2 == 'X' || sel2 == 'x') break;
+            }
+        }
+        if (sel == 'x' || sel == 'X') {
+            return;
+        }
+        else if (sel == 'b' || sel == 'B') {
+            order -= 10;
+        }
+        else if (sel == 'n' || sel == 'N') {
+            order += 10;
+        }
+    }
+}
+
+/*string stopSelector() {
+    vector<Line> program.lines();
+    int order = 0;
+    while(true) {
+        cout << endl << endl << "   NEARBY STOPS   " << endl << endl;
+        vector<char> opts;
+        int max = list.size();
+        for (int i = 0;  i < max; i++) {
+            string connectors;
+            if (list[order + i]->getLines().size() > 1)
+                for (int j = list[order + i]->getLines().size() -1; j > -1; --j) {
+                    connectors += program->getLineByCode(list[order + i]->getLines().at(0)).name;
+                    if (j == 1)
+                        connectors += " and ";
+                    else if (j>1)
+                        connectors += ", ";
+                }
+            else {
+                connectors = program->getLineByCode(list[order + i]->getLines().at(0)).name;
+            }
+            cout << "[" << i << "] Stop: " << list[order + i]->getName() << " Connects with : " << connectors << endl;
             opts.push_back(48 + i);
         }
         if (list.size() > 10) cout << endl << "<" << to_string(order / 10) << "/" << to_string(list.size() / 10) << ">" << endl << endl;
@@ -208,8 +352,8 @@ void Menu::stopsNearLocation() {
         char sel = readOptionInput(opts);
         if (sel > 47 && sel < 58){
             while (true) {
-                cout << endl << "[0] Travel To " << list[order + (sel-48)].getName()<< endl;
-                cout << "[1] Travel From " << list[order + (sel-48)].getName() << endl;
+                cout << endl << "[0] Travel To " << list[order + (sel-48)]->getName() << endl;
+                cout << "[1] Travel From " << list[order + (sel-48)]->getName() << endl;
                 cout << "[X] Back to Modify List" << endl;
                 cout << endl << "Select what you would like to modify";
                 char sel2 = readOptionInput({'0', '1', 'X', 'x'});
@@ -229,10 +373,9 @@ void Menu::stopsNearLocation() {
         else if (sel == 'n' || sel == 'N') {
             order += 10;
         }
-    };
-}
+    }
 
-
+*/
 
 /* TODO: Fica aqui uma lista de features a implementar, a medida que formos fazendo tira-se
  *

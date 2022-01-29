@@ -9,8 +9,7 @@ Stop::Stop() {
     this->code = "";
     this->zone = "";
 
-    this->latitude = 0;
-    this->longitude = 0;
+    this->coord = Coordinates(0, 0);
 }
 
 Stop::Stop(string name, string code, string zone, double latitude, double longitude) {
@@ -18,8 +17,15 @@ Stop::Stop(string name, string code, string zone, double latitude, double longit
     this->code = code;
     this->zone = zone;
 
-    this->latitude = latitude;
-    this->longitude = longitude;
+    this->coord = Coordinates(latitude, longitude);
+}
+
+Stop::Stop(string name, string code, string zone, Coordinates coord){
+    this->name = name;
+    this->code = code;
+    this->zone = zone;
+
+    this->coord = coord;
 }
 
 vector<vector<string>> Stop::read_stops(string filepath) const{
@@ -53,6 +59,32 @@ vector<string> Stop::read_stop(string line) const{
 }
 
 std::string Stop::getName() {
-    return this->name;
+    return name;
 }
 
+bool Stop::operator==(Stop A) {
+    return code == A.code;
+}
+
+void Stop::addLine(std::string newLine_){
+    for (auto existentLine : line)
+        if (existentLine == newLine_)
+            return;
+    this->line.push_back(newLine_);
+}
+
+void Stop::setCode(std::string newCode_) {
+    this->code = newCode_;
+}
+
+Coordinates Stop::getCoordinates() const {
+    return this->coord;
+}
+
+std::string Stop::getCode() {
+    return this->code;
+}
+
+std::vector<std::string>Stop:: getLines() {
+    return this->line;
+}

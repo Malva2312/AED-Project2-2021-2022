@@ -26,14 +26,14 @@ public:
      * Puts the coordinates in string form.
      * @return
      */
-    std::string toString() const;
+    std::string toString(int precison = 10) const;
 
     /**
      * Subtraction between two Coordinates objects.
      * @param coord
      * @return
      */
-    int operator-(Coordinates coord);
+    double operator-(Coordinates coord);
 
     /**
      * Checks if two coordinates are equal.
@@ -53,6 +53,8 @@ public:
      * @return
      */
     double getLongitude() const;
+
+    bool operator!= (Coordinates coord);
 };
 
 

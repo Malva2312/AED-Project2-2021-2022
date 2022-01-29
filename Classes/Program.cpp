@@ -4,12 +4,13 @@
 
 
 #include "Program.h"
-#include "../Classes/Stop.h"
+
 
 Program::Program(){
-    Menu newMenu = Menu(this);
-    this-> menu = &newMenu;
-    initializeProgram();
+     Menu newMenu = Menu(this);
+    this-> menu = newMenu;
+    this->userCoordinates = Coordinates(0,0);
+    //initializeProgram();
 }
 
 /**
@@ -17,24 +18,64 @@ Program::Program(){
  * TODO: Malva, usa esta funcao para ler os ficheiros e guardar em graphs.
  */
 void Program::initializeProgram() {
-    //TODO: read stops
-    //Add stops to graph
+    for (vector<string> stp : Stop().read_stops("../dataset/stops.csv")) {
+        allStops.emplace_back(stp[1], stp[0], stp[2], stod(stp[3]), stod(stp[4]));
+    }
+
+    ifstream file("../dataset/lines.csv");
+
+    if(!file.good()) {
+        string FileNotGood = "Unable to read the lines file.";
+        throw FileNotGood;
+    }
+    vector<string> linesText;
+    string line;
+    getline(file, line); //clean header
+    while(getline(file, line)){
+        linesText.push_back(line);
+    }
+
+    for (string busLine : linesText) {
+        std::size_t pos1 = busLine.find(",");      // position of the first "," in str
+        std::string code = busLine.substr(0, pos1);
+        std::size_t pos2 = busLine.find("-");
+        std::size_t pos3 = busLine.substr(pos2).find("-");
+
+        Line thisLine(code, busLine.substr(pos3));
+        ifstream file1("../dataset/line_" + code + "_0.csv");
+        if(!file1.good()) continue;
+
+        string lastStop = "";
+        getline(file1, line); //clean header
+        while(getline(file1, line)){
+            Stop * stop = findStopPtr(line);
+            stop->addLine(code);
+
+            if (lastStop != "")
+                thisLine.addConnection(lastStop, line, 0);
+
+            lastStop = line;
+        }
 
 
-    // read to lines for each line
+        ifstream file2("../dataset/line_" + code + "_1.csv");
+        if(!file2.good()) continue;
 
-    //A1, B1, C1
+        lastStop = "";
+        getline(file2, line); //clean header
+        while(getline(file2, line)){
+            Stop * stop = findStopPtr(line);
+            stop->addLine(code);
 
-    /*
-     * 56
-     * A1
-     * C1
-     */
+            if (lastStop != "")
+                thisLine.addConnection(lastStop, line, 0);
 
+            lastStop = line;
+        }
+        this->lines.push_back(thisLine);
+    }
 
-
-
-    this->menu->programMenu();
+    this->menu.programMenu();
 }
 
 void Program::setUserLocation(Coordinates coordinates) {
@@ -45,30 +86,133 @@ Coordinates Program::getUserLocation() {
     return this->userCoordinates;
 }
 
+MyGraph<Stop> Program::oportoMap_distance(){
+    MyGraph<Stop> newGraph = MyGraph<Stop>();
+    for (Stop stp : this->allStops)
+        newGraph.addNode(stp);
 
-Graph<Stop> Program::oportoMap(){
-    vector<Stop> thisStops;
-    for (vector<string> stp : Stop().read_stops("../dataset/stops.csv")) {
-        thisStops.emplace_back(stp[1], stp[0], stp[2], stod(stp[3]), stod(stp[4]));
+    for (Line line : this->lines) {
+        for (Connection con : line.connections) {
+            Stop org = findStop(con.org);
+            Stop dest = findStop(con.dest);
+            if (dest.getCode() == "" || org.getCode() == "")
+                continue;
+            newGraph.addEdge(org, dest, org.getCoordinates()-dest.getCoordinates());
+        }
     }
-    Graph<Stop> gRes(&thisStops[0]);
+    return newGraph;
+}
 
-    for (int i = 1; i < thisStops.size(); ++i) {
-        gRes.addNode(&thisStops[i]);
+MyGraph<Stop> Program::oportoMap_stops(){
+    MyGraph<Stop> newGraph = MyGraph<Stop>();
+    for (Stop stp : this->allStops)
+        newGraph.addNode(stp);
+
+    for (Line line : this->lines) {
+        for (Connection con : line.connections) {
+            Stop org = findStop(con.org);
+            Stop dest = findStop(con.dest);
+            if (dest.getCode() == "" || org.getCode() == "")
+                continue;
+            newGraph.addEdge(org, dest, 1);
+        }
     }
+    return newGraph;
+}
 
-    ifstream file("../dataset/lines.csv");
+Stop * Program::findStopPtr(string code){
+   int high = allStops.size() -1;
+    unsigned int low = 0;
 
-    if(!file.good()) {
-        string FileNotGood = "Unable to read the lines file.";
-        throw FileNotGood;
+    while (low <= high) {
+        unsigned int mid = low + (high - low) / 2;
+
+        if (allStops.at(mid).getCode() == code)
+            return &allStops.at(mid);
+
+        else if (allStops.at(mid).getCode() < code)
+            low = mid + 1;
+        else if (code < allStops.at(mid).getCode())
+            high = mid - 1;
     }
+    return nullptr;
+}
 
-    vector<Stop> all_stops;
-    string line;
-    getline(file, line); //clean header
-    while(getline(file, line)){
+Stop Program::findStop(string code){
+    unsigned int high = allStops.size() -1;
+    unsigned int low = 0;
+    unsigned int mid;
 
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (allStops.at(mid).getCode() == code)
+            return allStops.at(mid);
+
+        else if (allStops.at(mid).getCode() < code)
+            low = mid + 1;
+        else if (code < allStops.at(mid).getCode())
+            high = mid - 1;
     }
-    return gRes;
+    return {"", "", "", Coordinates(0, 0)};
+}
+
+vector<Stop *> Program::closestStops(){
+    Coordinates userCoord = this->getUserLocation();
+
+    vector<Stop *> res;
+    for (auto it = allStops.begin(); it != allStops.end(); it++){
+        res.push_back(&(*it));
+    }
+    sort(res.begin(), res.end(),
+         [&userCoord ](const Stop * A, const Stop * B){
+                return (A->getCoordinates() - userCoord) < (B->getCoordinates() - userCoord) ;
+    } );
+
+    return res;
+}
+
+Line Program::getLineByCode(std::string code) {
+    for (auto line : this->lines)
+        if (line.code == code)
+            return line;
+    return {"", ""};
+}
+
+void addLineToGraph(string file_line){
+
+}
+
+vector<Stop> Program::shortestPath(MyGraph<Stop> graph, Stop origin, Stop dest){
+    //graph.dijkstraForOriginValue(origin);
+    auto var = graph.dijkstraForOriginValue(origin);
+    auto path = var.second;
+
+
+    vector<Stop> res;
+
+    int idx = graph.findNodeIndex(dest);
+    if (idx < 0) return res;
+    Node<Stop> * nodePtr = graph.getAllNodesPtr().at(idx);
+    cout<<nodePtr->value.getCode();
+    while(path[nodePtr] != nullptr){
+
+        res.push_back(nodePtr->value);
+        nodePtr = path[nodePtr];
+    }
+    res.push_back(nodePtr->value);
+    return res;
+}
+
+std::vector<Stop> Program::getAllStops() {
+    return allStops;
+}
+
+std::vector<Stop *> Program::getAllStopsPtr() {
+    vector<Stop * > temp;
+
+    for (auto it = allStops.begin(); it != allStops.end(); it++){
+        temp.push_back(&(*it));
+    }
+    return temp;
 }
