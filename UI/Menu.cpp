@@ -208,6 +208,12 @@ bool Menu::searchStopCode(){
 }
 
 void Menu::programMenu() {
+    cout << "Select Schedule: " << endl;
+    cout << endl << "[0] - Night Schedule.";
+    cout << endl << "[1] - Daytime Schedule." << endl;
+    vector<char> opts = {'1', '0'};
+    program->setNightSchedule(readOptionInput(opts) == '0');
+
     askForLocation();
     bool running = true;
     while(running) {
@@ -217,13 +223,13 @@ void Menu::programMenu() {
         cout << "[1] Travel" << endl;
         cout << "[2] See Map" << endl;
         cout << "[3] Stops Near Me" << endl;
+        cout << "[4] Change Schedule" << endl;
         cout << "[0] Exit Program" << endl;
-        vector<char> opts = {'1', '2', '3', '0'};
+        vector<char> opts = {'1', '2', '3', '4', '0'};
         char sel = readOptionInput(opts);
         switch (sel) {
             case '1':
-                //if (!Menu())
-                    //running = false;
+                travel("", "");
                 break;
             case '2':
                 seeMap();
@@ -231,6 +237,14 @@ void Menu::programMenu() {
             case '3':
                 stopsNearLocation(true);
                 break;
+            case '4': {
+                cout << "Select Schedule: " << endl;
+                cout << endl << "[0] - Night Schedule.";
+                cout << endl << "[1] - Daytime Schedule." << endl;
+                vector<char> opts = {'1', '0'};
+                program->setNightSchedule(readOptionInput(opts) == '0');
+                break;
+            }
             case '0':
                 running = false;
                 break;
@@ -447,40 +461,55 @@ void Menu::seeMap() {
 
 
 void Menu::travel(string orgCode, string destCode) {
-    cout << endl;
-    cout << "   TRAVEL  " << endl;
-    cout << endl;
-    cout << "[1] Choose Origin" << endl;
-    cout << "    Current Origin: " << ((orgCode == "")? "Not yet defined" : program->findStop(orgCode).getName()) << endl;
-    cout << "[2] Choose Destination" << endl;
-    cout << "    Current Destination: " << ((destCode == "")? "Not yet defined" : program->findStop(destCode).getName()) << endl;
-    cout << "[3] Get Path" << endl;
-    cout << "[0] Back to Main Menu" << endl;
-    vector<char> opts = {'1', '2', '3', '0'};
-    char sel = readOptionInput(opts);
-    switch (sel) {
-        case '1':
-            orgCode = stopSelecting();
-            break;
-        case '2':
-            destCode = stopSelecting();
-            break;
-        case '3':
-            stopsNearLocation(true);
-            break;
-        case '0':
-            return;
+    while(true) {
+        cout << endl;
+        cout << "   TRAVEL  " << endl;
+        cout << endl;
+        cout << "[1] Choose Origin" << endl;
+        cout << "    Current Origin: " << ((orgCode == "") ? "Not yet defined" : program->findStop(orgCode).getName()) << endl;
+        cout << "[2] Choose Destination" << endl;
+        cout << "    Current Destination: " << ((destCode == "") ? "Not yet defined" : program->findStop(destCode).getName()) << endl;
+        cout << "[3] Get Path" << endl;
+        cout << "[0] Back to Main Menu" << endl;
+        vector<char> opts = {'1', '2', '3', '0'};
+        char sel = readOptionInput(opts);
+        switch (sel) {
+            case '1':
+                orgCode = stopSelecting();
+                break;
+            case '2':
+                destCode = stopSelecting();
+                break;
+            case '3': {
+                if (orgCode == "" && destCode == "")
+                    cout << "An origin and a destination must be defined before calculating the best path between them." << endl;
+                else if (orgCode == "")
+                    cout << "An origin must be defined before calculating the best path between them." << endl;
+                else if (destCode == "")
+                    cout << "A destination must be defined before calculating the best path between them." << endl;
+                else
+                    displayBestAlternatives(orgCode, destCode);
+                break;
+            }
+            case '0':
+                return;
+        }
     }
 }
+
+void Menu::displayBestAlternatives(string orgCode, string destCode) {
+    //TODO
+}
+
 
 /* TODO: Fica aqui uma lista de features a implementar, a medida que formos fazendo tira-se
  *
  * ==============
- * >> Opcao de listar as melhores viagens (categorizadas por distancia, tempo, menos paragens) apartir da propria localizacao
+ * >> Opcao de listar as melhores viagens (categorizadas por distancia, tempo, menos paragens) apartir da propria localizacao//TODO: On it ~Belluschi
  * >> Encontrar a paragem mais proxima da localizacao > Listamos as paragens de varias linhas e a distancia ate elas DONE
  * >> Adicionar filtro ao de cima? LATER
  * >> Opcao de visualizar o mapa: Seria algo como listar as linhas e poder escolher a linha pretendida, depois listar as paragens e poder escolher a paragem
- * pretendida, quando selecionar a paragem poder ver as paragens mais perto e as paragens/linhas que se conectam a esta. //TODO: Im on it ~Belluschi
+ * pretendida, quando selecionar a paragem poder ver as paragens mais perto e as paragens/linhas que se conectam a esta. DONE
  *
  *
  *

@@ -35,14 +35,22 @@ void Program::initializeProgram() {
     }
 
     for (string busLine : linesText) {
+        bool nocturn = false;
         std::size_t pos1 = busLine.find(",");      // position of the first "," in str
         std::string code = busLine.substr(0, pos1);
         std::size_t pos2 = busLine.find("-");
         std::size_t pos3 = busLine.substr(pos2).find("-");
 
+        if (code.at(code.length()-1) == 'M')
+            nocturn = true;
+
         Line thisLine(code, busLine.substr(pos3));
         ifstream file1("../dataset/line_" + code + "_0.csv");
-        if(!file1.good()) continue;
+        if(!file1.good()) {
+            Line thisLine(code, busLine.substr(pos3));
+            ifstream file1("../dataset/line_" + code + "_0.csv");
+            if(!file1.good()) continue;
+        }
 
         string lastStop = "";
         getline(file1, line); //clean header
@@ -71,7 +79,10 @@ void Program::initializeProgram() {
 
             lastStop = line;
         }
-        this->lines.push_back(thisLine);
+        if (!nocturn)
+            this->dayLines.push_back(thisLine);
+        else
+            this->nightLines.push_back(thisLine);
     }
 
     this->menu.programMenu();
@@ -85,6 +96,14 @@ Coordinates Program::getUserLocation() {
     return this->userCoordinates;
 }
 
+bool Program::getNightSchedule() {
+    return this->nightSchedule;
+}
+
+void Program::setNightSchedule(bool nightSchedule_) {
+    this->nightSchedule = nightSchedule_;
+}
+
 MyGraph<Stop> Program::loadStopsToNodes(MyGraph<Stop> &emptyGraph){
 
     for (Stop stp : this->allStops)
@@ -94,7 +113,7 @@ MyGraph<Stop> Program::loadStopsToNodes(MyGraph<Stop> &emptyGraph){
 
 MyGraph<Stop> Program::loadLineEdges_minDist(MyGraph<Stop> &graph){
 
-    for (Line line : this->lines) {
+    for (Line line : ((getNightSchedule()) ? this->nightLines : this->dayLines)) {
         if (line.available){loadConnectionsEdges_minDist(graph, line);}
     }
     return graph;
@@ -117,8 +136,7 @@ MyGraph<Stop> Program::oportoMap_minDist(){
 }
 
 MyGraph<Stop> Program::loadLineEdges_minStops(MyGraph<Stop> &graph){
-
-    for (Line line : this->lines) {
+    for (Line line : ((getNightSchedule()) ? this->nightLines : this->dayLines)) {
         if (line.available){loadConnectionsEdges_minStops(graph, line);}
     }
     return graph;
@@ -202,7 +220,10 @@ vector<Stop *> Program::closestStops(){
 }
 
 Line Program::getLineByCode(std::string code) {
-    for (auto line : this->lines)
+    for (auto line : this->dayLines)
+        if (line.code == code)
+            return line;
+    for (auto line : this->nightLines)
         if (line.code == code)
             return line;
     return {"", ""};
@@ -239,7 +260,7 @@ std::vector<Stop> Program::getAllStops() {
 }
 
 vector<Line> Program::getLines() {
-    return this->lines;
+    return ((getNightSchedule()) ? this->nightLines : this->dayLines);
 }
 
 std::vector<Stop *> Program::getAllStopsPtr() {
@@ -290,6 +311,6 @@ pair<double, pair<Stop, Stop>> Program::bestPath(Coordinates orig, Coordinates d
             }
         }
     }
-    return pair<double, pair<Stop, Stop>>;
+    return pair<double, pair<Stop, Stop>>();
 }
 

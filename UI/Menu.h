@@ -52,6 +52,7 @@ private:
 
     void travel(string orgCode, string destCode);
 
+    void displayBestAlternatives(string orgCode, string destCode);
 
 public:
     Menu(Program *program_);

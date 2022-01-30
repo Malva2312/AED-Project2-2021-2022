@@ -35,13 +35,17 @@ struct Line {
 
 class Program {
 private:
+    bool nightSchedule = false;
+
     std::vector<Stop> allStops;
 
     Menu menu = Menu(nullptr);
 
     Coordinates userCoordinates = Coordinates(0,0);
 
-    std::vector<Line> lines;
+    std::vector<Line> dayLines;
+
+    std::vector<Line> nightLines;
 
 public:
     Program();
@@ -53,6 +57,10 @@ public:
     void setUserLocation(Coordinates coordinates);
 
     Coordinates getUserLocation();
+
+    bool getNightSchedule();
+
+    void setNightSchedule(bool nightSchedule_);
 
     Stop* findStopPtr(string code);
 
