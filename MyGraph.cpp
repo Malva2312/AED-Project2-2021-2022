@@ -178,9 +178,9 @@ MyGraph<T>::dijkstraForOrigin(Node<T> originNode) {
     distMap[nodePtr] = 0.0;
     predOfKey[nodePtr] = nullptr;
 
-    while (!myPriorityNodesQueue.empty()){
+    sortMyPriorityNodesQueue(myPriorityNodesQueue);
 
-        sortMyPriorityNodesQueue(myPriorityNodesQueue);
+    while (!myPriorityNodesQueue.empty()){
 
         auto node = myPriorityNodesQueue.front();
         myPriorityNodesQueue.erase(myPriorityNodesQueue.begin());
@@ -193,6 +193,8 @@ MyGraph<T>::dijkstraForOrigin(Node<T> originNode) {
                && distMap[node.first] + it->weight < distMap[it->dest]){
                 distMap[it->dest] =  distMap[node.first] + it->weight;
                 predOfKey[it->dest] = node.first;
+
+                sortMyPriorityNodesQueue(myPriorityNodesQueue);
             }
         }
     }
@@ -258,11 +260,12 @@ MyGraph<T>::prims(Node<T> start) {
 
     for(auto it : start.adj) availableEdges.template emplace_back(org, it);
 
-    while (!availableEdges.empty()){
-        sort(availableEdges.begin(), availableEdges.end(), []
+    sort(availableEdges.begin(), availableEdges.end(), []
             (const std::pair<T, Edge<T>> A, const std::pair<T, Edge<T>> B){
-                return A.second.weight < B.second.weight;
-        });
+        return A.second.weight < B.second.weight;
+    });
+
+    while (!availableEdges.empty()){
 
         Edge<T> edge = availableEdges.front().second;
         T org = availableEdges.front().first;
@@ -273,6 +276,11 @@ MyGraph<T>::prims(Node<T> start) {
             edge.dest->visited = true;
             predOfKey[edge.dest->value] = org;
             for(auto it : edge.dest->adj) availableEdges.template emplace_back(edge.dest->value, it);
+
+            sort(availableEdges.begin(), availableEdges.end(), []
+                    (const std::pair<T, Edge<T>> A, const std::pair<T, Edge<T>> B){
+                return A.second.weight < B.second.weight;
+            });
         }
     }
 
