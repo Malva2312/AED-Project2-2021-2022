@@ -59,11 +59,7 @@ public:
      */
     void setAllNotVisited();
 
-    /**
-     * Returns all graph's nodes values
-     * @return
-     */
-    //std::vector<T *> getAllNodesValues() const;
+
     /**
      * Returns all nodes
      * @return
@@ -83,12 +79,20 @@ public:
 
     /**
      * Finds a node's index given its value
+     * The function uses operator== to compare the given value with the values present in the Nodes
+     * Return the index of the first occurrence
+     * Return -1 if no node was found
+     * Time complexity: O(N)
      * @param NodeValue
      * @return
      */
     int findNodeIndex(T NodeValue);
     /**
-     * Finds a node's index given its node
+     * Finds a node's index given its value
+     * The function uses operator== to compare the given value with the values present in the Nodes
+     * Return the index of the first occurrence
+     * Return -1 if no node was found
+     * Time complexity: O(N)
      * @param node
      * @return
      */
@@ -96,6 +100,8 @@ public:
 
     /**
      * Adds an edge between two nodes given their values
+     * Return True if the edge was created, return False otherwise
+     * Time complexity: O(n)
      * @param originNodeValue
      * @param destNodeValue
      * @param weight
@@ -104,6 +110,8 @@ public:
     bool addEdge(T originNodeValue, T destNodeValue, double weight);
     /**
      * Adds an edge between two nodes given the nodes
+     * Return True if the edge was created, return False otherwise
+     * Time complexity: O(n)
      * @param nodeOrigin
      * @param nodeDest
      * @param weight
@@ -143,6 +151,8 @@ public:
     std::vector<Node<T> *> valueToBFS(T &nodeValue);
     /**
      * BFS algorithm
+     * Returns pointers to nodes in the order they were visited
+     * Time complexity: O(N + E)
      * @param node
      * @return
      */
@@ -158,6 +168,7 @@ public:
 
     /**
      * Calls the Dijkstra's algorithm given a node's value
+     * Time complexity: O(E×log(N)), assuming that E ≥ V
      * @param originNodeValue
      * @return
      */
@@ -166,6 +177,7 @@ public:
             std::unordered_map<Node<T>*, Node<T> *>> dijkstraForOriginValue(T originNodeValue);
     /**
      * Dijkstra's algorithm
+     * Time complexity: O(E×log(N)), assuming that E ≥ V
      * @param originNode
      * @return
      */
@@ -181,6 +193,7 @@ public:
 
     /**
      * Prim's algorithm given a certain value
+     * Time complexity: O(E×log(E))
      * @param start
      * @return
      */
@@ -190,6 +203,7 @@ public:
 
     /**
      * Prim's algorithm given a node
+     * Time complexity: O(E×log(E))
      * @param start
      * @return
      */
@@ -198,7 +212,7 @@ public:
             std::unordered_map<T, T>> prims(Node<T> start);
 
     /**
-     *Returns a vector with the Stop and the distance to the origin
+     * Returns a vector with the Stop and the distance to the origin
      * @param nodeValue
      * @param end
      * @return
