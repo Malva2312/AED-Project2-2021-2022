@@ -297,8 +297,12 @@ pair<double, pair<Stop, Stop>> Program::bestPath(Coordinates orig, Coordinates d
     minDis.first = DBL_MAX;
 
     for(Stop* i : allStarts){
+        auto dij = graph.dijkstraForOriginValue(*i);
+
         for(Stop* ii : allEnds){
-            if (graph.pathValues(*i, *ii).at(0).second < minDis.first){
+            int idxEnd = graph.findNodeIndex(*ii);
+
+            if (dij.first[graph.getAllNodesPtr().at(idxEnd)] < minDis.first){
                 minDis.second.first = *i;
                 minDis.second.second = *ii;
             }
