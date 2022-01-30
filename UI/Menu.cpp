@@ -254,7 +254,7 @@ string Menu::stopsNearLocation(bool viewMode_) {
             return list[order + sel - 48]->getCode();
         }
         if (sel == 'x' || sel == 'X') {
-            return nullptr;
+            return "";
         }
         else if (sel == 'b' || sel == 'B') {
             order -= 10;
