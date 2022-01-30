@@ -44,18 +44,6 @@ string Menu::readTextInput() {
     return res;
 }
 
-int Menu::readIntInput() {
-    int res;
-    cin >> res;
-    while(cin.fail()) {
-        cout << "Error, not an integer." << std::endl;
-        cin.clear();
-        cin.ignore(256,'\n');
-        cin >> res;
-    }
-    cout << endl;
-    return res;
-}
 
 char Menu::readOptionInput(const vector<char>& options) {
     char sel = -1;
