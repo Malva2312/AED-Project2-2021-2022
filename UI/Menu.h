@@ -88,7 +88,7 @@ private:
      * Shows the Stop's info
      * @param stop_
      */
-    void stopInfo(Stop* stop_);
+    void stopInfo(string code_);
 
     /**
      * Shows information about the map

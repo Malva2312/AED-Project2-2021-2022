@@ -231,8 +231,26 @@ string Menu::stopsNearLocation(bool viewMode_) {
 
         char sel = readOptionInput(opts);
         if (sel > 47 && sel < 58){
-            if (viewMode_)
-                stopInfo((list[order + sel - 48]));
+            if (viewMode_) {
+                while (true) {
+                    cout << endl << "[0] Travel To " << program->findStop((list[order + sel - 48])->getCode()).getName() << endl;
+                    cout << "[1] Travel From " << program->findStop((list[order + sel - 48])->getCode()).getName() << endl;
+                    cout << "[2] Stop Information" << endl;
+                    cout << "[X] Back to Menu" << endl;
+                    cout << endl << "Select an option" << endl;
+                    char sel2 = readOptionInput({'0', '1', '2', 'X', 'x'});
+                    if (sel2 == '0') {
+                        travel("", (list[order + sel - 48])->getCode());
+                        return "";
+                    } else if (sel2 == '1') {
+                        travel((list[order + sel - 48])->getCode(), "");
+                        return "";
+                    } else if (sel2 == '2') {
+                        stopInfo((list[order + sel - 48])->getCode());
+                    } else if (sel2 == 'X' || sel2 == 'x')
+                        return (list[order + sel - 48])->getCode();
+                }
+            }
             return list[order + sel - 48]->getCode();
         }
         if (sel == 'x' || sel == 'X') {
@@ -274,6 +292,8 @@ string Menu::stopSelecting() {
         case '0':
             return "";
     }
+
+    return "";
 }
 
 
@@ -371,16 +391,17 @@ string Menu::lineSelector() {
     }
 }
 
-void Menu::stopInfo(Stop * stop_) {
+void Menu::stopInfo(string code_) {
+    Stop stop = program->findStop(code_);
     cout << "   STOP INFO    " << endl << endl;
-    cout << "Name: " << stop_->getName() << endl;
-    cout << "Code: " << stop_->getCode() << endl;
-    cout << "Zone: " << stop_->getZone() << endl;
-    cout << "Coordinates: " << stop_->getCoordinates().toString() << endl;
+    cout << "Name: " << stop.getName() << endl;
+    cout << "Code: " << stop.getCode() << endl;
+    cout << "Zone: " << stop.getZone() << endl;
+    cout << "Coordinates: " << stop.getCoordinates().toString() << endl;
     cout << "Has connections with the following lines: " << endl;
-    for (auto line : stop_->getLines())
+    for (auto line : stop.getLines())
         cout << program->getLineByCode(line).name << endl;
-    cout << endl << "Press x to go back to menu." << endl;
+    cout << endl << "Press X to go back." << endl;
     readOptionInput({'x', 'X'});
 }
 
@@ -392,13 +413,16 @@ void Menu::seeMap() {
     while (true) {
         cout << endl << "[0] Travel To " << program->findStop(stopSelected).getName() << endl;
         cout << "[1] Travel From " << program->findStop(stopSelected).getName() << endl;
+        cout << "[2] Stop Information" << endl;
         cout << "[X] Back to Menu" << endl;
-        cout << endl << "Select what you would like to modify";
-        char sel2 = readOptionInput({'0', '1', 'X', 'x'});
+        cout << endl << "Select an option" << endl;
+        char sel2 = readOptionInput({'0', '1', '2', 'X', 'x'});
         if (sel2 == '0') {
             travel("", stopSelected);
         } else if (sel2 == '1') {
             travel(stopSelected, "");
+        } else if (sel2 == '2') {
+            stopInfo(stopSelected);
         } else if (sel2 == 'X' || sel2 == 'x') return;
     }
 }
