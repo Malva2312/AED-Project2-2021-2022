@@ -46,11 +46,7 @@ void Program::initializeProgram() {
 
         Line thisLine(code, busLine.substr(pos3));
         ifstream file1("../dataset/line_" + code + "_0.csv");
-        if(!file1.good()) {
-            Line thisLine(code, busLine.substr(pos3));
-            ifstream file1("../dataset/line_" + code + "_0.csv");
-            if(!file1.good()) continue;
-        }
+        if(!file1.good()) continue;
 
         string lastStop = "";
         getline(file1, line); //clean header

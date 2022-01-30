@@ -47,16 +47,6 @@ private:
     string readTextInput();
 
     /**
-     * Reads intergers input from the terminal
-     * @return
-     */
-    static int readIntInput();
-
-    Time readTimeInput();
-
-    Time readDateInput();
-
-    /**
      * Reads an option input  from the terminal
      * @param options
      * @return
