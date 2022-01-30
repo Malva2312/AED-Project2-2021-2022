@@ -195,7 +195,6 @@ Stop Program::findStop(string code){
     return {"", "", "", Coordinates(0, 0)};
 }
 
-
 Stop Program::findStopByName(string name){
     for (auto stop: allStops) {
         if(stop.getName() == name)
@@ -228,7 +227,6 @@ Line Program::getLineByCode(std::string code) {
             return line;
     return {"", ""};
 }
-
 /*
 void addLineToGraph(string file_line){
 
@@ -282,7 +280,6 @@ vector<Stop * > Program::closestInRange(Coordinates coord, double range){
     return res;
 }
 
-
 MyGraph<Stop> Program::choosePath(int x){
     switch (x) {
         case 1:
@@ -311,6 +308,6 @@ pair<double, pair<Stop, Stop>> Program::bestPath(Coordinates orig, Coordinates d
             }
         }
     }
-    return pair<double, pair<Stop, Stop>>();
+    return minDis;
 }
 
