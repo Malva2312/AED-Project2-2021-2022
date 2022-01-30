@@ -28,11 +28,7 @@ private:
 
     string readTextInput();
 
-    static int readIntInput();
-
-    Time readTimeInput();
-
-    Time readDateInput();
+    int readIntInput();
 
     char readOptionInput(const vector<char>& options);
 

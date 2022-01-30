@@ -57,50 +57,6 @@ int Menu::readIntInput() {
     return res;
 }
 
-Time Menu::readTimeInput() {
-    Time newTime(0,0, 1, 0, 1);
-    cout << endl << "Year: ";
-    newTime.setYear(readIntInput());
-    newTime.setMonth(-1);
-    while(!newTime.isValid()){
-        cout << "Month: ";
-        newTime.setMonth(readIntInput());
-    }
-    newTime.setDay(-1);
-    while(!newTime.isValid()){
-        cout << "Day: ";
-        newTime.setDay(readIntInput());
-    }
-    newTime.setHour(-1);
-    while(!newTime.isValid()){
-        cout << "Hour: ";
-        newTime.setHour(readIntInput());
-    }
-    newTime.setMin(-1);
-    while(!newTime.isValid()){
-        cout << "Minute: ";
-        newTime.setMin(readIntInput());
-    }
-    return newTime;
-}
-
-Time Menu::readDateInput() {
-    Time newTime(0,10, 1, 0, 1);
-    cout << endl << "Year: ";
-    newTime.setYear(readIntInput());
-    newTime.setMonth(-1);
-    while(!newTime.isValid()){
-        cout << "Month: ";
-        newTime.setMonth(readIntInput());
-    }
-    newTime.setDay(-1);
-    while(!newTime.isValid()){
-        cout << "Day: ";
-        newTime.setDay(readIntInput());
-    }
-    return newTime;
-}
-
 char Menu::readOptionInput(const vector<char>& options) {
     char sel = -1;
     while (!inVector(sel, options)) {
