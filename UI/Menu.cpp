@@ -102,7 +102,7 @@ void Menu::askForLocation() {
         }
     }
     cout << "The selected coordinates were: " << program->getUserLocation().toString() << endl;
-    Stop * closest = program->closestStops().at(0);
+    Stop * closest = program->closestStops(program->getUserLocation()).at(0);
     cout << "Closest stop: " << closest->getCode() << "  -  " << closest->getName() << endl;
     cout << "At distance: " << closest->getCoordinates()-program->getUserLocation() << "m" << endl;
 }
@@ -203,14 +203,14 @@ string Menu::stopsNearLocation(bool viewMode_) {
     vector<char> opts = {'1', '0'};
     char sel = readOptionInput(opts);
     if (sel == '1') askForLocation();
-    vector<Stop *> list = program->closestStops();
+    vector<Stop *> list = program->closestStops(program->getUserLocation());
     int order = 0;
     while(true) {
         cout << endl << endl << "   NEARBY STOPS   " << endl << endl;
         vector<char> opts;
         int max = (list.size() - order < 10) ? ((list.size() - order) % 10) : 10;
         for (int i = 0;  i < max; i++) {
-            cout << "[" << i << "] " << list[order + i]->getName() << " " << list[order + i]->getCoordinates() - program->getUserLocation() << " meters away." << endl;
+            cout << "[" << i << "] " << list[order + i]->getCode() << " - "<<list[order + i]->getName() << " " << list[order + i]->getCoordinates() - program->getUserLocation() << " meters away." << endl;
             opts.push_back(48 + i);
         }
         if (list.size() > 10) cout << endl << "<" << to_string(order / 10) << "/" << to_string(list.size() / 10) << ">" << endl << endl;
@@ -285,10 +285,14 @@ string Menu::stopSelecting() {
                 return "";
             return stopSelector(selectedLine);
         }
-        case '3':
+        case '3': {
+            cout << "Insert name: ";
             return program->findStopByName(readTextInput()).getCode();
-        case '4':
+        }
+        case '4':{
+            cout << "Insert code: ";
             return program->findStop(readTextInput()).getCode();
+        }
         case '0':
             return "";
     }
@@ -455,7 +459,10 @@ void Menu::travel(string orgCode, string destCode) {
                     cout << "An origin must be defined before calculating the best path between them." << endl;
                 else if (destCode == "")
                     cout << "A destination must be defined before calculating the best path between them." << endl;
+                else if (destCode == orgCode)
+                    cout << "The origin and the destination can not be the same." << endl;
                 else
+                    cout << "\n--> Calculating path <--" << endl;
                     displayBestAlternatives(orgCode, destCode);
                 break;
             }
@@ -466,6 +473,16 @@ void Menu::travel(string orgCode, string destCode) {
 }
 
 void Menu::displayBestAlternatives(string orgCode, string destCode) {
+    int opt = 1; //1 if distancia //2 if less stops
+
+    auto bestPath = program->bestPath(program->findStop(orgCode).getCoordinates(), program->findStop(destCode).getCoordinates(),
+                                      1, 1, opt);
+
+    vector<Stop> path = program->shortestPath(program->choosePath(opt), bestPath.second.first, bestPath.second.second);
+
+    for (Stop stop : path){
+        cout << stop.getCode() << " --- " << stop.getName() << endl;
+    }
     //TODO
 }
 

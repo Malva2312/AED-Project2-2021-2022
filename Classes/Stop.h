@@ -71,6 +71,13 @@ public:
     bool operator == (Stop A);
 
     /**
+    * Checks if two Stops are different by comparing their code
+    * @param A
+    * @return
+    */
+    bool operator != (Stop A);
+
+    /**
      * Sets the Stop's code
      * @param basicString
      */

@@ -66,12 +66,18 @@ bool MyGraph<T>::addEdge(T originNodeValue, T destNodeValue, double weight) {
 
     if (idxOrigin < 0 || idxDest < 0){return false;}
 
+    for(Edge<T> adj : allNodes.at(idxOrigin).adj){
+        if (adj.dest->value == allNodes.at(idxDest).value && adj.weight == weight){
+            return false;
+        }
+    }
+
     Edge<T> newEdge;
     newEdge.dest = &allNodes.at(idxDest);
     newEdge.weight = weight;
 
-    allNodes.at(idxOrigin).adj.push_back(newEdge);
-    return true;
+     allNodes.at(idxOrigin).adj.push_back(newEdge);
+     return true;
 }
 
 template<class T>
@@ -80,6 +86,12 @@ bool MyGraph<T>::addEdge(Node<T> nodeOrigin, Node<T> nodeDest, double weight) {
     int idxDest = findNodeIndex(nodeOrigin);
 
     if (idxOrigin < 0 || idxDest < 0){return false;}
+
+    for(Edge<T> adj : allNodes.at(idxOrigin).adj){
+        if (adj.dest->value == allNodes.at(idxDest).value && adj.weight == weight){
+            return false;
+        }
+    }
 
     Edge<T> newEdge;
     newEdge.dest = &allNodes.at(idxDest);

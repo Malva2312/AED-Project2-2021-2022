@@ -118,8 +118,9 @@ void Program::loadConnectionsEdges_minDist(MyGraph<Stop> &graph, Line line){
     for (Connection con : line.connections) {
         Stop org = findStop(con.org);
         Stop dest = findStop(con.dest);
-        if (dest.getCode() == "" || org.getCode() == "")
+        if (dest.getCode() == "" || org.getCode() == ""){
             continue;
+        }
         graph.addEdge(org, dest, org.getCoordinates() - dest.getCoordinates());
     }
 }
@@ -128,6 +129,7 @@ MyGraph<Stop> Program::oportoMap_minDist(){
     loadStopsToNodes(newGraph);
 
     loadLineEdges_minDist(newGraph);
+
     return newGraph;
 }
 
@@ -135,6 +137,7 @@ MyGraph<Stop> Program::loadLineEdges_minStops(MyGraph<Stop> &graph){
     for (Line line : ((getNightSchedule()) ? this->nightLines : this->dayLines)) {
         if (line.available){loadConnectionsEdges_minStops(graph, line);}
     }
+
     return graph;
 }
 void Program::loadConnectionsEdges_minStops(MyGraph<Stop> &graph, Line line){
@@ -199,8 +202,8 @@ Stop Program::findStopByName(string name){
     return {"", "", "", Coordinates(0, 0)};
 }
 
-vector<Stop *> Program::closestStops(){
-    Coordinates userCoord = this->getUserLocation();
+vector<Stop *> Program::closestStops(Coordinates userCoord){
+    //Coordinates userCoord = this->getUserLocation();
 
     vector<Stop *> res;
     for (auto it = allStops.begin(); it != allStops.end(); it++){
@@ -239,7 +242,8 @@ vector<Stop> Program::shortestPath(MyGraph<Stop> graph, Stop origin, Stop dest){
     int idx = graph.findNodeIndex(dest);
     if (idx < 0) return res;
     Node<Stop> * nodePtr = graph.getAllNodesPtr().at(idx);
-    cout<<nodePtr->value.getCode();
+
+
     while(path[nodePtr] != nullptr){
 
         res.push_back(nodePtr->value);
@@ -266,22 +270,61 @@ std::vector<Stop *> Program::getAllStopsPtr() {
     return temp;
 }
 
-vector<Stop * > Program::closestInRange(Coordinates coord, double range){
-    vector<Stop *> orderedByDistance = closestStops();
+vector<Stop * > Program::closestInRange(Coordinates coord, double range_){
+    vector<Stop *> orderedByDistance = closestStops(coord);
     vector<Stop *> res;
+    int idx =  0;
 
-    copy_if(closestStops().begin(), closestStops().end(), back_inserter(res), [&coord,&range](const Stop * A){
-        return Stop().getCoordinates() - coord <= range;
-    });
+    while (idx >= 0 && idx < orderedByDistance.size() ){
+        if (orderedByDistance.at(idx)->getCoordinates() - coord <= range_ ){
+            res.push_back(orderedByDistance.at(idx));
+        }
+        else break;
+        idx++;
+    }
+
     return res;
 }
 
+void Program::addWalk(int opt, MyGraph<Stop> &graph, Stop start){
+    vector<Node<Stop>*> vec = graph.valueToBFS(start);
+
+    switch (opt) {
+        case 1: {//minDist
+            for (auto node: vec) {
+                for (auto adj: node->adj) {
+                    if (node->value.getCoordinates() - adj.dest->value.getCoordinates() <= range) {
+                        graph.addEdge(node->value, adj.dest->value,
+                                      node->value.getCoordinates() - adj.dest->value.getCoordinates());
+                    }
+                }
+            }
+        }
+        case 2: {//minStops
+            for (auto node: vec) {
+                for (auto adj: node->adj) {
+                    if (node->value.getCoordinates() - adj.dest->value.getCoordinates() <= range) {
+                        graph.addEdge(node->value, adj.dest->value,
+                                      1);
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
 MyGraph<Stop> Program::choosePath(int x){
-    switch (x) {
+    MyGraph<Stop> graph;
+    switch (x) {//1 if distancia //2 if less stops
         case 1:
-            return oportoMap_minDist();
+            graph = oportoMap_minDist();
+            return graph;
+
         case 2:
-            return oportoMap_minStops();
+            graph = oportoMap_minStops();
+            return graph;
         default:
             return MyGraph<Stop>();
     }
@@ -291,6 +334,8 @@ pair<double, pair<Stop, Stop>> Program::bestPath(Coordinates orig, Coordinates d
     MyGraph<Stop> graph = choosePath(opt);
     vector<Stop *> allStarts = closestInRange(orig, rangeStart);
     vector<Stop *> allEnds = closestInRange(dest, rangeEnd);
+
+    addWalk(opt, graph, *allStarts.at(0));
 
     pair<double, pair<Stop, Stop>> minDis;
 

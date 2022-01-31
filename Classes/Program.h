@@ -64,6 +64,8 @@ private:
 
     std::vector<Line> nightLines;
 
+    double range = 20; //m
+
 public:
     /**
      * Initializes the menu
@@ -146,7 +148,7 @@ public:
      * Returns a vector of the closest Stops sorted by distance
      * @return
      */
-    vector<Stop *> closestStops();
+    vector<Stop *> closestStops(Coordinates userCoord);
 
     /**
      * Returns a certain Line given its code
@@ -228,6 +230,15 @@ public:
      * @return
      */
     pair<double, pair<Stop, Stop>> bestPath(Coordinates orig, Coordinates dest, double rangeStart, double rangeEnd, int opt);
+
+    /**
+     * Adds edges to a graph representing walking paths
+     * @param opt
+     * @param graph
+     * @param start
+     * @return
+     */
+    void addWalk(int opt, MyGraph<Stop> &graph, Stop start);
 };
 
 

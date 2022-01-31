@@ -66,6 +66,10 @@ bool Stop::operator==(Stop A) {
     return code == A.code;
 }
 
+bool Stop::operator!=(Stop A) {
+    return code != A.code;
+}
+
 void Stop::addLine(std::string newLine_){
     for (auto existentLine : line)
         if (existentLine == newLine_)
