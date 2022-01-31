@@ -326,14 +326,5 @@ std::vector<std::pair<T, double>> MyGraph<T>::pathValues(T start, T end){  //  p
 
     return res;
 }
-/*
-template<class T>
-std::vector<T *> MyGraph<T>::getAllNodesValues() const {
-    std::vector<T *> allNodesValues;
-    for (auto it = allNodes.begin(); it != allNodes.end(); it++){
-        //allNodesValues.push_back((it->value));
-    }
-    return allNodesValues;
-}*/
 
 

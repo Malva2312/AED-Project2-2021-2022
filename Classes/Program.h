@@ -123,7 +123,7 @@ public:
      * @param code
      * @return
      */
-    Stop findStop(string code); //BinarySearch so para o professor gostar lololololol
+    Stop findStop(string code);
 
     /**
      * Returns the Stop's value given its name

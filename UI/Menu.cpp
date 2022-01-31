@@ -210,7 +210,7 @@ string Menu::stopsNearLocation(bool viewMode_) {
         vector<char> opts;
         int max = (list.size() - order < 10) ? ((list.size() - order) % 10) : 10;
         for (int i = 0;  i < max; i++) {
-            cout << "[" << i << "] " << list[order + i]->getCode() << " - "<<list[order + i]->getName() << " " << list[order + i]->getCoordinates() - program->getUserLocation() << " meters away." << endl;
+            cout << "[" << i << "] "<< list[order + i]->getCode() << " - " << list[order + i]->getCode() << " - "<<list[order + i]->getName() << " " << list[order + i]->getCoordinates() - program->getUserLocation() << " meters away." << endl;
             opts.push_back(48 + i);
         }
         if (list.size() > 10) cout << endl << "<" << to_string(order / 10) << "/" << to_string(list.size() / 10) << ">" << endl << endl;
@@ -504,13 +504,29 @@ void Menu::displayBestAlternatives(string orgCode, string destCode) {
 
     vector<Stop> path = program->shortestPath(program->choosePath(option), bestPath.second.first, bestPath.second.second);
 
-/*
-    string lastLine = "";
-    string nextlin = "";*/
-    reverse(path.begin(), path.end());
-    for (Stop stop : path){
 
-        cout << stop.getCode() << " --- " << stop.getName() << endl;
+    string currentLine =  "Walking";
+    for (string it : path.at(0).getLines()){
+        for(string ii : path.at(1).getLines()){
+            if (it == ii ){
+                currentLine = it;
+            }
+        }
+    }
+
+    string lastLine;
+    string nexLine;
+/*
+    reverse(path.begin(), path.end());
+    cout << path.at(0).getCode() << " --- " << path.at(0).getName() << " --- " << currentLine <<endl;
+    for (unsigned idx = 1; idx < path.size() -1; idx++){
+        lastLine = currentLine;
+        vector<string> lines = path.at(idx).getLines();
+        if (find(path.at(idx).getLines().begin(),path.at(idx).getLines().end(), lastLine))
+        cout << path.at(idx).getCode() << " --- " << path.at(idx).getName() << " --- " << currentLine <<endl;
+    }*/
+    for (auto it : path){
+        cout << it.getCode() <<" - " <<it.getName() << endl;
     }
 
 }
