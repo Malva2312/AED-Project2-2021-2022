@@ -1,0 +1,94 @@
+\hypertarget{_my_graph_8h_source}{}\doxysection{My\+Graph.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Utilizador on 28/01/2022.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef TRABALHOAED2\_MYGRAPH\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define TRABALHOAED2\_MYGRAPH\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}float.h"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{struct }\mbox{\hyperlink{struct_node}{Node}};}
+\DoxyCodeLine{17 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{struct }\mbox{\hyperlink{struct_edge}{Edge}};}
+\DoxyCodeLine{18 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{class_my_graph}{MyGraph}};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{struct }\mbox{\hyperlink{struct_node}{Node}}\{}
+\DoxyCodeLine{22     std::vector<Edge<T> > adj;}
+\DoxyCodeLine{23     T value;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{bool} visited = \textcolor{keyword}{false};       \textcolor{comment}{// auxiliary field}}
+\DoxyCodeLine{25 \};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{struct }\mbox{\hyperlink{struct_edge}{Edge}}\{}
+\DoxyCodeLine{28     \mbox{\hyperlink{struct_node}{Node<T>}} *dest;}
+\DoxyCodeLine{29     \textcolor{keywordtype}{int} weight;}
+\DoxyCodeLine{30 \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{class_my_graph}{MyGraph}} \{}
+\DoxyCodeLine{33 \textcolor{keyword}{private}:}
+\DoxyCodeLine{34     std::vector<Node<T> > allNodes;}
+\DoxyCodeLine{35 \textcolor{keyword}{public}:}
+\DoxyCodeLine{39     \mbox{\hyperlink{class_my_graph_aee5c8ea8e232d5e1027cc697a380e63b}{MyGraph}}();}
+\DoxyCodeLine{44     \mbox{\hyperlink{class_my_graph_aee5c8ea8e232d5e1027cc697a380e63b}{MyGraph}}(T firstNodeValue);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_my_graph_a8dc6d920ea9108bbab81639b19856c93}{addNode}}(\mbox{\hyperlink{struct_node}{Node<T>}} newNode);}
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_my_graph_a8dc6d920ea9108bbab81639b19856c93}{addNode}}(T value);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_my_graph_af8cf18e2b2b698df88c7258654673bb4}{setAllNotVisited}}();}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{67     std::vector<Node<T>> \mbox{\hyperlink{class_my_graph_abe9d305e4b2fc3c035735f6cf02d6b53}{getAllNodes}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{72     std::vector<Node<T>*> \mbox{\hyperlink{class_my_graph_a123b04a2970a036cfa5a262d84525523}{getAllNodesPtr}}();}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_my_graph_a2b99df0ee8b208d793d6bfabb31af32b}{size}}();}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{89     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_my_graph_a5d3c64dd8ad1120ff199fcc8365f3e77}{findNodeIndex}}(T NodeValue);}
+\DoxyCodeLine{99     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_my_graph_a5d3c64dd8ad1120ff199fcc8365f3e77}{findNodeIndex}}(\mbox{\hyperlink{struct_node}{Node<T>}} node);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{110     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_my_graph_a699fa0ad3a41b2e116cfb2cf3331cbb4}{addEdge}}(T originNodeValue, T destNodeValue, \textcolor{keywordtype}{double} weight);}
+\DoxyCodeLine{120     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_my_graph_a699fa0ad3a41b2e116cfb2cf3331cbb4}{addEdge}}(\mbox{\hyperlink{struct_node}{Node<T>}} nodeOrigin, \mbox{\hyperlink{struct_node}{Node<T>}} nodeDest, \textcolor{keywordtype}{double} weight);}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{126     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_my_graph_ad8e86e02b11da6458d721bb9ed40947c}{removeNode}}(\mbox{\hyperlink{struct_node}{Node<T>}} node);}
+\DoxyCodeLine{131     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_my_graph_a1550a21ec756508fb89262e0cc529671}{removeNode}}(T nodeValue);}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{138     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_my_graph_aa1e79e6f58cf33c28dbc7605d382efa5}{eraseEdge}}(\mbox{\hyperlink{struct_node}{Node<T>}} origin, \mbox{\hyperlink{struct_node}{Node<T>}} dest);}
+\DoxyCodeLine{144     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_my_graph_a85c03106936e31d3678e4757ff60f80f}{eraseEdge}}(T originValue, T destValue);}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{151     std::vector<Node<T> *> \mbox{\hyperlink{class_my_graph_a655fd38738198a6d8be4f7a0f4734732}{valueToBFS}}(T \&nodeValue);}
+\DoxyCodeLine{159     std::vector<Node<T> *> \mbox{\hyperlink{class_my_graph_a1cb34faf6c76b4e46e0bd4ccd04171fc}{BFS}}(\mbox{\hyperlink{struct_node}{Node<T>}} \&node);}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 }
+\DoxyCodeLine{167     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_my_graph_ac4ce326e65b7aba5b7c8d636239756d7}{addAdjToQueue}}(\mbox{\hyperlink{struct_node}{Node<T>}} *node, std::queue<\mbox{\hyperlink{struct_node}{Node<T>}} *> \&nodesQueue);}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{175     std::pair<}
+\DoxyCodeLine{176             std::unordered\_map<Node<T>*, \textcolor{keywordtype}{double} >,}
+\DoxyCodeLine{177             std::unordered\_map<Node<T>*, \mbox{\hyperlink{struct_node}{Node<T>}} *>> \mbox{\hyperlink{class_my_graph_a476c8a305f7a363d114b89978137d091}{dijkstraForOriginValue}}(T originNodeValue);}
+\DoxyCodeLine{184     std::pair<}
+\DoxyCodeLine{185             std::unordered\_map<Node<T>*, \textcolor{keywordtype}{double} >,}
+\DoxyCodeLine{186             std::unordered\_map<Node<T>*, \mbox{\hyperlink{struct_node}{Node<T>}} *>> \mbox{\hyperlink{class_my_graph_a5980cdec513d1edcfcab2f8e9dfdb677}{dijkstraForOrigin}}(\mbox{\hyperlink{struct_node}{Node<T>}} originNode);}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{192     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_my_graph_a5b6e5ab2960c49d66e6e170fcef506a3}{sortMyPriorityNodesQueue}}(std::vector<std::pair<\mbox{\hyperlink{struct_node}{Node<T>}} *, \textcolor{keywordtype}{double}*>> \&myPriorityNodesQueue);}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{200     std::pair<}
+\DoxyCodeLine{201             double,}
+\DoxyCodeLine{202             std::unordered\_map<T, T>> \mbox{\hyperlink{class_my_graph_a5c648e1e0f66836d86896b163fb698f2}{prims}}(T start);}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{210     std::pair<}
+\DoxyCodeLine{211             double,}
+\DoxyCodeLine{212             std::unordered\_map<T, T>> \mbox{\hyperlink{class_my_graph_a5c648e1e0f66836d86896b163fb698f2}{prims}}(\mbox{\hyperlink{struct_node}{Node<T>}} start);}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{220     std::vector<std::pair<T, double>> \mbox{\hyperlink{class_my_graph_adfe6079e40aba60a5263dd0e3d2a475f}{pathValues}}(T nodeValue , T end);}
+\DoxyCodeLine{221 \};}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//TRABALHOAED2\_MYGRAPH\_H}}
+
+\end{DoxyCode}

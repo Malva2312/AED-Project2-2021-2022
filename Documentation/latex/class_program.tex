@@ -1,0 +1,389 @@
+\hypertarget{class_program}{}\doxysection{Program Class Reference}
+\label{class_program}\index{Program@{Program}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{Program}} ()
+\item 
+void \mbox{\hyperlink{class_program_aa361a7af626b5d17d2b169d71d7cddc4}{initialize\+Program}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \mbox{\hyperlink{class_program_ac26d1498e8d5752925f4208d441ff6fe}{get\+All\+Stops}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_stop}{Stop}} $\ast$ $>$ \mbox{\hyperlink{class_program_a8ff4078daada2023d43269e674539cdb}{get\+All\+Stops\+Ptr}} ()
+\item 
+void \mbox{\hyperlink{class_program_ac22b0835b4473141db2762513d67f658}{set\+User\+Location}} (\mbox{\hyperlink{class_coordinates}{Coordinates}} coordinates)
+\item 
+\mbox{\hyperlink{class_coordinates}{Coordinates}} \mbox{\hyperlink{class_program_abb9d040389abeee740545674dbe0cc02}{get\+User\+Location}} ()
+\item 
+bool \mbox{\hyperlink{class_program_afbc8d5139b510b1deabb2327f4ba5b52}{get\+Night\+Schedule}} ()
+\item 
+void \mbox{\hyperlink{class_program_ab58ecd643ee8e08c1b8e8078dc3c9f3a}{set\+Night\+Schedule}} (bool night\+Schedule\+\_\+)
+\item 
+\mbox{\hyperlink{class_stop}{Stop}} $\ast$ \mbox{\hyperlink{class_program_a3f870ab0e16a1a2714a20cb55826eb42}{find\+Stop\+Ptr}} (string code)
+\item 
+\mbox{\hyperlink{class_stop}{Stop}} \mbox{\hyperlink{class_program_a3c7ae0a6f7d5a76cbfe548880fb4694f}{find\+Stop}} (string code)
+\item 
+\mbox{\hyperlink{class_stop}{Stop}} \mbox{\hyperlink{class_program_a8433385d51d566ed21d4594e12c47c38}{find\+Stop\+By\+Name}} (string name)
+\item 
+\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \mbox{\hyperlink{class_program_ace57fc033235c44eb89362bbde7b11e9}{oporto\+Map\+\_\+min\+Dist}} ()
+\item 
+\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \mbox{\hyperlink{class_program_accfac54370589b9acb8b9358d27a47b8}{oporto\+Map\+\_\+min\+Stops}} ()
+\item 
+vector$<$ \mbox{\hyperlink{class_stop}{Stop}} $\ast$ $>$ \mbox{\hyperlink{class_program_a77b4fe3425e313f8e4a202dc65dfd467}{closest\+Stops}} (\mbox{\hyperlink{class_coordinates}{Coordinates}} user\+Coord)
+\item 
+\mbox{\hyperlink{struct_line}{Line}} \mbox{\hyperlink{class_program_aa427140622ace1578ae075dec94fa788}{get\+Line\+By\+Code}} (std\+::string code)
+\item 
+vector$<$ \mbox{\hyperlink{struct_line}{Line}} $>$ \mbox{\hyperlink{class_program_a35d980730db27950bea82e22b841320e}{get\+Lines}} ()
+\item 
+vector$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \mbox{\hyperlink{class_program_a0affb081a1f1af45f85dd5d113cb37f3}{shortest\+Path}} (\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ graph, \mbox{\hyperlink{class_stop}{Stop}} origin, \mbox{\hyperlink{class_stop}{Stop}} dest)
+\item 
+\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \mbox{\hyperlink{class_program_ae902cd8150f5a9fa8cecc57af6959738}{load\+Stops\+To\+Nodes}} (\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \&empty\+Graph)
+\item 
+\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \mbox{\hyperlink{class_program_a662fc4a13fe800af70713fdc0f4724b0}{load\+Line\+Edges\+\_\+min\+Stops}} (\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \&graph)
+\item 
+void \mbox{\hyperlink{class_program_a1530e1579fee3daf1a286c26a0836394}{load\+Connections\+Edges\+\_\+min\+Stops}} (\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \&graph, \mbox{\hyperlink{struct_line}{Line}} line)
+\item 
+\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \mbox{\hyperlink{class_program_ae867fe624627c23c3c7601b86ca13620}{load\+Line\+Edges\+\_\+min\+Dist}} (\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \&graph)
+\item 
+void \mbox{\hyperlink{class_program_aba14e0166113eb0d414e717f48873769}{load\+Connections\+Edges\+\_\+min\+Dist}} (\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \&graph, \mbox{\hyperlink{struct_line}{Line}} line)
+\item 
+vector$<$ \mbox{\hyperlink{class_stop}{Stop}} $\ast$ $>$ \mbox{\hyperlink{class_program_aaf349dc41c4e2f3f1c3dff2d1f5cc258}{closest\+In\+Range}} (\mbox{\hyperlink{class_coordinates}{Coordinates}} coord, double range)
+\item 
+\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \mbox{\hyperlink{class_program_ae495e7384ea49b2f7c22e3f3d16a1c55}{choose\+Path}} (int x)
+\item 
+pair$<$ double, pair$<$ \mbox{\hyperlink{class_stop}{Stop}}, \mbox{\hyperlink{class_stop}{Stop}} $>$ $>$ \mbox{\hyperlink{class_program_a474d4c1b8c9076746b99e7ef5b56bf73}{best\+Path}} (\mbox{\hyperlink{class_coordinates}{Coordinates}} orig, \mbox{\hyperlink{class_coordinates}{Coordinates}} dest, double range\+Start, double range\+End, int opt)
+\item 
+void \mbox{\hyperlink{class_program_a20c6c40ce16c4bb89967fd9efbdc5fd3}{add\+Walk}} (int opt, \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \&graph, \mbox{\hyperlink{class_stop}{Stop}} start)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_program_aaefaa0df08f3484476fc4d61e97acbdc}\label{class_program_aaefaa0df08f3484476fc4d61e97acbdc}} 
+\index{Program@{Program}!Program@{Program}}
+\index{Program@{Program}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{Program()}{Program()}}
+{\footnotesize\ttfamily Program\+::\+Program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initializes the menu 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_program_a20c6c40ce16c4bb89967fd9efbdc5fd3}\label{class_program_a20c6c40ce16c4bb89967fd9efbdc5fd3}} 
+\index{Program@{Program}!addWalk@{addWalk}}
+\index{addWalk@{addWalk}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{addWalk()}{addWalk()}}
+{\footnotesize\ttfamily void Program\+::add\+Walk (\begin{DoxyParamCaption}\item[{int}]{opt,  }\item[{\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \&}]{graph,  }\item[{\mbox{\hyperlink{class_stop}{Stop}}}]{start }\end{DoxyParamCaption})}
+
+Adds edges to a graph representing walking paths 
+\begin{DoxyParams}{Parameters}
+{\em opt} & \\
+\hline
+{\em graph} & \\
+\hline
+{\em start} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_a474d4c1b8c9076746b99e7ef5b56bf73}\label{class_program_a474d4c1b8c9076746b99e7ef5b56bf73}} 
+\index{Program@{Program}!bestPath@{bestPath}}
+\index{bestPath@{bestPath}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{bestPath()}{bestPath()}}
+{\footnotesize\ttfamily pair$<$ double, pair$<$ \mbox{\hyperlink{class_stop}{Stop}}, \mbox{\hyperlink{class_stop}{Stop}} $>$ $>$ Program\+::best\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_coordinates}{Coordinates}}}]{orig,  }\item[{\mbox{\hyperlink{class_coordinates}{Coordinates}}}]{dest,  }\item[{double}]{range\+Start,  }\item[{double}]{range\+End,  }\item[{int}]{opt }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em orig} & \\
+\hline
+{\em dest} & \\
+\hline
+{\em range\+Start} & \\
+\hline
+{\em range\+End} & \\
+\hline
+{\em opt} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_ae495e7384ea49b2f7c22e3f3d16a1c55}\label{class_program_ae495e7384ea49b2f7c22e3f3d16a1c55}} 
+\index{Program@{Program}!choosePath@{choosePath}}
+\index{choosePath@{choosePath}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{choosePath()}{choosePath()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ Program\+::choose\+Path (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+Chooses the option to filter the kind of path someone wants 
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_aaf349dc41c4e2f3f1c3dff2d1f5cc258}\label{class_program_aaf349dc41c4e2f3f1c3dff2d1f5cc258}} 
+\index{Program@{Program}!closestInRange@{closestInRange}}
+\index{closestInRange@{closestInRange}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{closestInRange()}{closestInRange()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_stop}{Stop}} $\ast$ $>$ Program\+::closest\+In\+Range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_coordinates}{Coordinates}}}]{coord,  }\item[{double}]{range }\end{DoxyParamCaption})}
+
+Returns a vector with all Stops close to given coordinates within a certain range 
+\begin{DoxyParams}{Parameters}
+{\em coord} & \\
+\hline
+{\em range} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_a77b4fe3425e313f8e4a202dc65dfd467}\label{class_program_a77b4fe3425e313f8e4a202dc65dfd467}} 
+\index{Program@{Program}!closestStops@{closestStops}}
+\index{closestStops@{closestStops}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{closestStops()}{closestStops()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_stop}{Stop}} $\ast$ $>$ Program\+::closest\+Stops (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_coordinates}{Coordinates}}}]{user\+Coord }\end{DoxyParamCaption})}
+
+Returns a vector of the closest Stops sorted by distance \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_a3c7ae0a6f7d5a76cbfe548880fb4694f}\label{class_program_a3c7ae0a6f7d5a76cbfe548880fb4694f}} 
+\index{Program@{Program}!findStop@{findStop}}
+\index{findStop@{findStop}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{findStop()}{findStop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stop}{Stop}} Program\+::find\+Stop (\begin{DoxyParamCaption}\item[{string}]{code }\end{DoxyParamCaption})}
+
+Returns the \mbox{\hyperlink{class_stop}{Stop}}\textquotesingle{}s value given its code 
+\begin{DoxyParams}{Parameters}
+{\em code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_a8433385d51d566ed21d4594e12c47c38}\label{class_program_a8433385d51d566ed21d4594e12c47c38}} 
+\index{Program@{Program}!findStopByName@{findStopByName}}
+\index{findStopByName@{findStopByName}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{findStopByName()}{findStopByName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stop}{Stop}} Program\+::find\+Stop\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+Returns the \mbox{\hyperlink{class_stop}{Stop}}\textquotesingle{}s value given its name 
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_a3f870ab0e16a1a2714a20cb55826eb42}\label{class_program_a3f870ab0e16a1a2714a20cb55826eb42}} 
+\index{Program@{Program}!findStopPtr@{findStopPtr}}
+\index{findStopPtr@{findStopPtr}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{findStopPtr()}{findStopPtr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stop}{Stop}} $\ast$ Program\+::find\+Stop\+Ptr (\begin{DoxyParamCaption}\item[{string}]{code }\end{DoxyParamCaption})}
+
+Returns the \mbox{\hyperlink{class_stop}{Stop}}\textquotesingle{}s pointer given its code 
+\begin{DoxyParams}{Parameters}
+{\em code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_ac26d1498e8d5752925f4208d441ff6fe}\label{class_program_ac26d1498e8d5752925f4208d441ff6fe}} 
+\index{Program@{Program}!getAllStops@{getAllStops}}
+\index{getAllStops@{getAllStops}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{getAllStops()}{getAllStops()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ Program\+::get\+All\+Stops (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns all Stops in a vector \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_a8ff4078daada2023d43269e674539cdb}\label{class_program_a8ff4078daada2023d43269e674539cdb}} 
+\index{Program@{Program}!getAllStopsPtr@{getAllStopsPtr}}
+\index{getAllStopsPtr@{getAllStopsPtr}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{getAllStopsPtr()}{getAllStopsPtr()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_stop}{Stop}} $\ast$ $>$ Program\+::get\+All\+Stops\+Ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns all Stops\textquotesingle{} pointers \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_aa427140622ace1578ae075dec94fa788}\label{class_program_aa427140622ace1578ae075dec94fa788}} 
+\index{Program@{Program}!getLineByCode@{getLineByCode}}
+\index{getLineByCode@{getLineByCode}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{getLineByCode()}{getLineByCode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_line}{Line}} Program\+::get\+Line\+By\+Code (\begin{DoxyParamCaption}\item[{std\+::string}]{code }\end{DoxyParamCaption})}
+
+Returns a certain \mbox{\hyperlink{struct_line}{Line}} given its code 
+\begin{DoxyParams}{Parameters}
+{\em code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_a35d980730db27950bea82e22b841320e}\label{class_program_a35d980730db27950bea82e22b841320e}} 
+\index{Program@{Program}!getLines@{getLines}}
+\index{getLines@{getLines}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{getLines()}{getLines()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{struct_line}{Line}} $>$ Program\+::get\+Lines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns all Lines \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_afbc8d5139b510b1deabb2327f4ba5b52}\label{class_program_afbc8d5139b510b1deabb2327f4ba5b52}} 
+\index{Program@{Program}!getNightSchedule@{getNightSchedule}}
+\index{getNightSchedule@{getNightSchedule}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{getNightSchedule()}{getNightSchedule()}}
+{\footnotesize\ttfamily bool Program\+::get\+Night\+Schedule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the available lines at night \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_abb9d040389abeee740545674dbe0cc02}\label{class_program_abb9d040389abeee740545674dbe0cc02}} 
+\index{Program@{Program}!getUserLocation@{getUserLocation}}
+\index{getUserLocation@{getUserLocation}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{getUserLocation()}{getUserLocation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_coordinates}{Coordinates}} Program\+::get\+User\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the user\textquotesingle{}s location \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_aa361a7af626b5d17d2b169d71d7cddc4}\label{class_program_aa361a7af626b5d17d2b169d71d7cddc4}} 
+\index{Program@{Program}!initializeProgram@{initializeProgram}}
+\index{initializeProgram@{initializeProgram}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{initializeProgram()}{initializeProgram()}}
+{\footnotesize\ttfamily void Program\+::initialize\+Program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reads the files from the dataset so that they are ready to use
+
+Initializes every data necessary for executing tasks and the UI. TODO\+: Malva, usa esta funcao para ler os ficheiros e guardar em graphs. \mbox{\Hypertarget{class_program_aba14e0166113eb0d414e717f48873769}\label{class_program_aba14e0166113eb0d414e717f48873769}} 
+\index{Program@{Program}!loadConnectionsEdges\_minDist@{loadConnectionsEdges\_minDist}}
+\index{loadConnectionsEdges\_minDist@{loadConnectionsEdges\_minDist}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{loadConnectionsEdges\_minDist()}{loadConnectionsEdges\_minDist()}}
+{\footnotesize\ttfamily void Program\+::load\+Connections\+Edges\+\_\+min\+Dist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \&}]{graph,  }\item[{\mbox{\hyperlink{struct_line}{Line}}}]{line }\end{DoxyParamCaption})}
+
+Loads all edges as the distance between two stops in order to get the shortest path 
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+{\em line} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_program_a1530e1579fee3daf1a286c26a0836394}\label{class_program_a1530e1579fee3daf1a286c26a0836394}} 
+\index{Program@{Program}!loadConnectionsEdges\_minStops@{loadConnectionsEdges\_minStops}}
+\index{loadConnectionsEdges\_minStops@{loadConnectionsEdges\_minStops}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{loadConnectionsEdges\_minStops()}{loadConnectionsEdges\_minStops()}}
+{\footnotesize\ttfamily void Program\+::load\+Connections\+Edges\+\_\+min\+Stops (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \&}]{graph,  }\item[{\mbox{\hyperlink{struct_line}{Line}}}]{line }\end{DoxyParamCaption})}
+
+Loads all edges as a unitary value between Stops in order to get the path with minimum stops 
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+{\em line} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_program_ae867fe624627c23c3c7601b86ca13620}\label{class_program_ae867fe624627c23c3c7601b86ca13620}} 
+\index{Program@{Program}!loadLineEdges\_minDist@{loadLineEdges\_minDist}}
+\index{loadLineEdges\_minDist@{loadLineEdges\_minDist}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{loadLineEdges\_minDist()}{loadLineEdges\_minDist()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ Program\+::load\+Line\+Edges\+\_\+min\+Dist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \&}]{graph }\end{DoxyParamCaption})}
+
+Checks if a line is available in order to load the edges of a node 
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_a662fc4a13fe800af70713fdc0f4724b0}\label{class_program_a662fc4a13fe800af70713fdc0f4724b0}} 
+\index{Program@{Program}!loadLineEdges\_minStops@{loadLineEdges\_minStops}}
+\index{loadLineEdges\_minStops@{loadLineEdges\_minStops}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{loadLineEdges\_minStops()}{loadLineEdges\_minStops()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ Program\+::load\+Line\+Edges\+\_\+min\+Stops (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \&}]{graph }\end{DoxyParamCaption})}
+
+Checks if a line is available in order to load the edges of a node 
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_ae902cd8150f5a9fa8cecc57af6959738}\label{class_program_ae902cd8150f5a9fa8cecc57af6959738}} 
+\index{Program@{Program}!loadStopsToNodes@{loadStopsToNodes}}
+\index{loadStopsToNodes@{loadStopsToNodes}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{loadStopsToNodes()}{loadStopsToNodes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ Program\+::load\+Stops\+To\+Nodes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ \&}]{empty\+Graph }\end{DoxyParamCaption})}
+
+Loads all stops into a graph\textquotesingle{}s nodes 
+\begin{DoxyParams}{Parameters}
+{\em empty\+Graph} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_ace57fc033235c44eb89362bbde7b11e9}\label{class_program_ace57fc033235c44eb89362bbde7b11e9}} 
+\index{Program@{Program}!oportoMap\_minDist@{oportoMap\_minDist}}
+\index{oportoMap\_minDist@{oportoMap\_minDist}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{oportoMap\_minDist()}{oportoMap\_minDist()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ Program\+::oporto\+Map\+\_\+min\+Dist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the map\textquotesingle{}s graph in order to after obtain the minimum distance between stops \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_accfac54370589b9acb8b9358d27a47b8}\label{class_program_accfac54370589b9acb8b9358d27a47b8}} 
+\index{Program@{Program}!oportoMap\_minStops@{oportoMap\_minStops}}
+\index{oportoMap\_minStops@{oportoMap\_minStops}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{oportoMap\_minStops()}{oportoMap\_minStops()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ Program\+::oporto\+Map\+\_\+min\+Stops (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the map\textquotesingle{}s graph in order to after obtain a trip with minimum stops \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_program_ab58ecd643ee8e08c1b8e8078dc3c9f3a}\label{class_program_ab58ecd643ee8e08c1b8e8078dc3c9f3a}} 
+\index{Program@{Program}!setNightSchedule@{setNightSchedule}}
+\index{setNightSchedule@{setNightSchedule}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{setNightSchedule()}{setNightSchedule()}}
+{\footnotesize\ttfamily void Program\+::set\+Night\+Schedule (\begin{DoxyParamCaption}\item[{bool}]{night\+Schedule\+\_\+ }\end{DoxyParamCaption})}
+
+Sets the night schedule to \textquotesingle{}true\textquotesingle{} or \textquotesingle{}false\textquotesingle{} 
+\begin{DoxyParams}{Parameters}
+{\em night\+Schedule\+\_\+} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_program_ac22b0835b4473141db2762513d67f658}\label{class_program_ac22b0835b4473141db2762513d67f658}} 
+\index{Program@{Program}!setUserLocation@{setUserLocation}}
+\index{setUserLocation@{setUserLocation}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{setUserLocation()}{setUserLocation()}}
+{\footnotesize\ttfamily void Program\+::set\+User\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_coordinates}{Coordinates}}}]{coordinates }\end{DoxyParamCaption})}
+
+Sets the location of the user given its coordinates 
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_program_a0affb081a1f1af45f85dd5d113cb37f3}\label{class_program_a0affb081a1f1af45f85dd5d113cb37f3}} 
+\index{Program@{Program}!shortestPath@{shortestPath}}
+\index{shortestPath@{shortestPath}!Program@{Program}}
+\doxysubsubsection{\texorpdfstring{shortestPath()}{shortestPath()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$ Program\+::shortest\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ \mbox{\hyperlink{class_stop}{Stop}} $>$}]{graph,  }\item[{\mbox{\hyperlink{class_stop}{Stop}}}]{origin,  }\item[{\mbox{\hyperlink{class_stop}{Stop}}}]{dest }\end{DoxyParamCaption})}
+
+Returns the shortest path between two stops 
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+{\em origin} & \\
+\hline
+{\em dest} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Classes/Program.\+h\item 
+Classes/Program.\+cpp\end{DoxyCompactItemize}

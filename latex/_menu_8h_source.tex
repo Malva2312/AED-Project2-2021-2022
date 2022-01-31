@@ -1,0 +1,71 @@
+\hypertarget{_menu_8h_source}{}\doxysection{Menu.\+h}
+\label{_menu_8h_source}\index{UI/Menu.h@{UI/Menu.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by asus on 25/01/2022.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef TRABALHOAED2\_MENU\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define TRABALHOAED2\_MENU\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../Classes/Coordinates.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}../Classes/Time.h"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_program}{Program}};}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_stop}{Stop}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{class_menu}{Menu}} \{}
+\DoxyCodeLine{20 \textcolor{keyword}{private}:}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_program}{Program}} *program;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{bool} inVector(\textcolor{keywordtype}{char} sel, vector<char> options);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{double} readDoubleInput();}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{41     \mbox{\hyperlink{class_coordinates}{Coordinates}} readCoordInput();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{string} readTextInput();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{char} readOptionInput(\textcolor{keyword}{const} vector<char>\& options);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} askForLocation();}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{string} stopsNearLocation(\textcolor{keywordtype}{bool} viewMode\_);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{string} stopSelecting();}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{79     \textcolor{keywordtype}{string} stopSelector(\textcolor{keywordtype}{string} lineName\_);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{85     \textcolor{keywordtype}{string} lineSelector();}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} stopInfo(\textcolor{keywordtype}{string} code\_);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{96     \textcolor{keywordtype}{void} seeMap();}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{103     \textcolor{keywordtype}{void} travel(\textcolor{keywordtype}{string} orgCode, \textcolor{keywordtype}{string} destCode);}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{110     \textcolor{keywordtype}{void} displayBestAlternatives(\textcolor{keywordtype}{string} orgCode, \textcolor{keywordtype}{string} destCode);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{keyword}{public}:}
+\DoxyCodeLine{117     \mbox{\hyperlink{class_menu_a4c62b532fb665749ded183af759562f1}{Menu}}(\mbox{\hyperlink{class_program}{Program}} *program\_);}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{122     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_abe4139e156c299d9069f047ca6f0909a}{programMenu}}();}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{128     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_menu_af01367e00481133b733b63bf369d4108}{insertCoordinates}}();}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{134     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_menu_ab7a677a43d950df14767dfefc5ef07cc}{searchStopName}}();}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{140     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_menu_a315bf8a751102e2029dff19b2ef8d5db}{searchStopCode}}();}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \};}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//TRABALHOAED2\_MENU\_H}}
+
+\end{DoxyCode}

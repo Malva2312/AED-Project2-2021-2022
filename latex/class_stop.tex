@@ -1,0 +1,210 @@
+\hypertarget{class_stop}{}\doxysection{Stop Class Reference}
+\label{class_stop}\index{Stop@{Stop}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_stop_ab8870f949c69cda03c4055524ed13c31}{Stop}} ()
+\item 
+\mbox{\hyperlink{class_stop_a1d04b362d66c4f94b0dd0f6154c32418}{Stop}} (std\+::string name, std\+::string code, std\+::string zone, double latitude, double longitude)
+\item 
+\mbox{\hyperlink{class_stop_a222cd5350702265d61be2095ce5c267f}{Stop}} (std\+::string name, std\+::string code, std\+::string zone, \mbox{\hyperlink{class_coordinates}{Coordinates}} coord)
+\item 
+std\+::vector$<$ std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{class_stop_a08a0a47650937a40405ef7d6a33b1456}{read\+\_\+stops}} (std\+::string filepath) const
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_stop_a15b7ed01d1a3e118ecb59e3f780885d0}{read\+\_\+stop}} (std\+::string line) const
+\item 
+std\+::string \mbox{\hyperlink{class_stop_a7e2499a50c7315ae02c88be239320e9f}{get\+Name}} ()
+\item 
+void \mbox{\hyperlink{class_stop_ad8f048740f6e591d69e7101ce1b40241}{add\+Line}} (std\+::string new\+Line\+\_\+)
+\item 
+bool \mbox{\hyperlink{class_stop_af79f0c7f5475e490fe2137a513ca3803}{operator==}} (\mbox{\hyperlink{class_stop}{Stop}} A)
+\item 
+bool \mbox{\hyperlink{class_stop_ae07622ec563a83e71aa384366a77374e}{operator!=}} (\mbox{\hyperlink{class_stop}{Stop}} A)
+\item 
+void \mbox{\hyperlink{class_stop_ae46e3427b44826f090899c57e14c348e}{set\+Code}} (std\+::string basic\+String)
+\item 
+std\+::string \mbox{\hyperlink{class_stop_a41d51058f3367c3e783c7b58d8a11366}{get\+Code}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_stop_a9940d869072cddcc82668cd0c5782a65}{get\+Zone}} ()
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_stop_ae2f3535c92f07739dfc329681bc4ef63}{get\+Lines}} ()
+\item 
+\mbox{\hyperlink{class_coordinates}{Coordinates}} \mbox{\hyperlink{class_stop_a3b36e4142a3a884a5cc648bbdfc3013f}{get\+Coordinates}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_stop_ab8870f949c69cda03c4055524ed13c31}\label{class_stop_ab8870f949c69cda03c4055524ed13c31}} 
+\index{Stop@{Stop}!Stop@{Stop}}
+\index{Stop@{Stop}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{Stop()}{Stop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Stop\+::\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates a default object of the class \mbox{\hyperlink{class_stop}{Stop}} \mbox{\Hypertarget{class_stop_a1d04b362d66c4f94b0dd0f6154c32418}\label{class_stop_a1d04b362d66c4f94b0dd0f6154c32418}} 
+\index{Stop@{Stop}!Stop@{Stop}}
+\index{Stop@{Stop}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{Stop()}{Stop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Stop\+::\+Stop (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{code,  }\item[{std\+::string}]{zone,  }\item[{double}]{latitude,  }\item[{double}]{longitude }\end{DoxyParamCaption})}
+
+Creates an object of the class \mbox{\hyperlink{class_stop}{Stop}} 
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em code} & \\
+\hline
+{\em zone} & \\
+\hline
+{\em latitude} & \\
+\hline
+{\em longitude} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_stop_a222cd5350702265d61be2095ce5c267f}\label{class_stop_a222cd5350702265d61be2095ce5c267f}} 
+\index{Stop@{Stop}!Stop@{Stop}}
+\index{Stop@{Stop}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{Stop()}{Stop()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Stop\+::\+Stop (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{code,  }\item[{std\+::string}]{zone,  }\item[{\mbox{\hyperlink{class_coordinates}{Coordinates}}}]{coord }\end{DoxyParamCaption})}
+
+Creates an object of the class \mbox{\hyperlink{class_stop}{Stop}} 
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em code} & \\
+\hline
+{\em zone} & \\
+\hline
+{\em coord} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_stop_ad8f048740f6e591d69e7101ce1b40241}\label{class_stop_ad8f048740f6e591d69e7101ce1b40241}} 
+\index{Stop@{Stop}!addLine@{addLine}}
+\index{addLine@{addLine}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{addLine()}{addLine()}}
+{\footnotesize\ttfamily void Stop\+::add\+Line (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+Line\+\_\+ }\end{DoxyParamCaption})}
+
+Adds a new line 
+\begin{DoxyParams}{Parameters}
+{\em new\+Line\+\_\+} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_stop_a41d51058f3367c3e783c7b58d8a11366}\label{class_stop_a41d51058f3367c3e783c7b58d8a11366}} 
+\index{Stop@{Stop}!getCode@{getCode}}
+\index{getCode@{getCode}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily std\+::string Stop\+::get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the \mbox{\hyperlink{class_stop}{Stop}}\textquotesingle{}s code \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_stop_a3b36e4142a3a884a5cc648bbdfc3013f}\label{class_stop_a3b36e4142a3a884a5cc648bbdfc3013f}} 
+\index{Stop@{Stop}!getCoordinates@{getCoordinates}}
+\index{getCoordinates@{getCoordinates}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{getCoordinates()}{getCoordinates()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_coordinates}{Coordinates}} Stop\+::get\+Coordinates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the \mbox{\hyperlink{class_stop}{Stop}}\textquotesingle{}s coordinates \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_stop_ae2f3535c92f07739dfc329681bc4ef63}\label{class_stop_ae2f3535c92f07739dfc329681bc4ef63}} 
+\index{Stop@{Stop}!getLines@{getLines}}
+\index{getLines@{getLines}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{getLines()}{getLines()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Stop\+::get\+Lines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the \mbox{\hyperlink{class_stop}{Stop}}\textquotesingle{}s lines \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_stop_a7e2499a50c7315ae02c88be239320e9f}\label{class_stop_a7e2499a50c7315ae02c88be239320e9f}} 
+\index{Stop@{Stop}!getName@{getName}}
+\index{getName@{getName}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Stop\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a \mbox{\hyperlink{class_stop}{Stop}}\textquotesingle{}s name \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_stop_a9940d869072cddcc82668cd0c5782a65}\label{class_stop_a9940d869072cddcc82668cd0c5782a65}} 
+\index{Stop@{Stop}!getZone@{getZone}}
+\index{getZone@{getZone}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{getZone()}{getZone()}}
+{\footnotesize\ttfamily std\+::string Stop\+::get\+Zone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the \mbox{\hyperlink{class_stop}{Stop}}\textquotesingle{}s zone \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_stop_ae07622ec563a83e71aa384366a77374e}\label{class_stop_ae07622ec563a83e71aa384366a77374e}} 
+\index{Stop@{Stop}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Stop\+::operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_stop}{Stop}}}]{A }\end{DoxyParamCaption})}
+
+Checks if two Stops are different by comparing their code 
+\begin{DoxyParams}{Parameters}
+{\em A} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_stop_af79f0c7f5475e490fe2137a513ca3803}\label{class_stop_af79f0c7f5475e490fe2137a513ca3803}} 
+\index{Stop@{Stop}!operator==@{operator==}}
+\index{operator==@{operator==}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Stop\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_stop}{Stop}}}]{A }\end{DoxyParamCaption})}
+
+Checks if two Stops are equal by comparing their code 
+\begin{DoxyParams}{Parameters}
+{\em A} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_stop_a15b7ed01d1a3e118ecb59e3f780885d0}\label{class_stop_a15b7ed01d1a3e118ecb59e3f780885d0}} 
+\index{Stop@{Stop}!read\_stop@{read\_stop}}
+\index{read\_stop@{read\_stop}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{read\_stop()}{read\_stop()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Stop\+::read\+\_\+stop (\begin{DoxyParamCaption}\item[{std\+::string}]{line }\end{DoxyParamCaption}) const}
+
+Reads a \mbox{\hyperlink{class_stop}{Stop}} and puts its information in a vector 
+\begin{DoxyParams}{Parameters}
+{\em line} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_stop_a08a0a47650937a40405ef7d6a33b1456}\label{class_stop_a08a0a47650937a40405ef7d6a33b1456}} 
+\index{Stop@{Stop}!read\_stops@{read\_stops}}
+\index{read\_stops@{read\_stops}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{read\_stops()}{read\_stops()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ string $>$ $>$ Stop\+::read\+\_\+stops (\begin{DoxyParamCaption}\item[{std\+::string}]{filepath }\end{DoxyParamCaption}) const}
+
+Reads all \mbox{\hyperlink{class_stop}{Stop}}\textquotesingle{}s files and returns them in a vector 
+\begin{DoxyParams}{Parameters}
+{\em filepath} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_stop_ae46e3427b44826f090899c57e14c348e}\label{class_stop_ae46e3427b44826f090899c57e14c348e}} 
+\index{Stop@{Stop}!setCode@{setCode}}
+\index{setCode@{setCode}!Stop@{Stop}}
+\doxysubsubsection{\texorpdfstring{setCode()}{setCode()}}
+{\footnotesize\ttfamily void Stop\+::set\+Code (\begin{DoxyParamCaption}\item[{std\+::string}]{basic\+String }\end{DoxyParamCaption})}
+
+Sets the \mbox{\hyperlink{class_stop}{Stop}}\textquotesingle{}s code 
+\begin{DoxyParams}{Parameters}
+{\em basic\+String} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Classes/Stop.\+h\item 
+Classes/Stop.\+cpp\end{DoxyCompactItemize}

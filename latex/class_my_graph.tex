@@ -1,0 +1,401 @@
+\hypertarget{class_my_graph}{}\doxysection{My\+Graph\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_my_graph}\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_my_graph_aee5c8ea8e232d5e1027cc697a380e63b}{My\+Graph}} ()
+\item 
+\mbox{\hyperlink{class_my_graph_a66d2e72cd79dd777c82771eb6a750894}{My\+Graph}} (T first\+Node\+Value)
+\item 
+void \mbox{\hyperlink{class_my_graph_a8dc6d920ea9108bbab81639b19856c93}{add\+Node}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ new\+Node)
+\item 
+void \mbox{\hyperlink{class_my_graph_a668d4d20d4b9c3c0e8539212eac52fa4}{add\+Node}} (T value)
+\item 
+void \mbox{\hyperlink{class_my_graph_af8cf18e2b2b698df88c7258654673bb4}{set\+All\+Not\+Visited}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $>$ \mbox{\hyperlink{class_my_graph_abe9d305e4b2fc3c035735f6cf02d6b53}{get\+All\+Nodes}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ $>$ \mbox{\hyperlink{class_my_graph_a123b04a2970a036cfa5a262d84525523}{get\+All\+Nodes\+Ptr}} ()
+\item 
+unsigned int \mbox{\hyperlink{class_my_graph_a2b99df0ee8b208d793d6bfabb31af32b}{size}} ()
+\item 
+int \mbox{\hyperlink{class_my_graph_a5d3c64dd8ad1120ff199fcc8365f3e77}{find\+Node\+Index}} (T Node\+Value)
+\item 
+int \mbox{\hyperlink{class_my_graph_abe5cd86904131606f5a731e2a4bd0383}{find\+Node\+Index}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ node)
+\item 
+bool \mbox{\hyperlink{class_my_graph_a699fa0ad3a41b2e116cfb2cf3331cbb4}{add\+Edge}} (T origin\+Node\+Value, T dest\+Node\+Value, double weight)
+\item 
+bool \mbox{\hyperlink{class_my_graph_a4cbd4a3ef391ab7dfa92e65f446508f7}{add\+Edge}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ node\+Origin, \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ node\+Dest, double weight)
+\item 
+void \mbox{\hyperlink{class_my_graph_ad8e86e02b11da6458d721bb9ed40947c}{remove\+Node}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ node)
+\item 
+void \mbox{\hyperlink{class_my_graph_a1550a21ec756508fb89262e0cc529671}{remove\+Node}} (T node\+Value)
+\item 
+void \mbox{\hyperlink{class_my_graph_aa1e79e6f58cf33c28dbc7605d382efa5}{erase\+Edge}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ origin, \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ dest)
+\item 
+void \mbox{\hyperlink{class_my_graph_a85c03106936e31d3678e4757ff60f80f}{erase\+Edge}} (T origin\+Value, T dest\+Value)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ $>$ \mbox{\hyperlink{class_my_graph_a655fd38738198a6d8be4f7a0f4734732}{value\+To\+BFS}} (T \&node\+Value)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ $>$ \mbox{\hyperlink{class_my_graph_a1cb34faf6c76b4e46e0bd4ccd04171fc}{BFS}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ \&node)
+\item 
+void \mbox{\hyperlink{class_my_graph_ac4ce326e65b7aba5b7c8d636239756d7}{add\+Adj\+To\+Queue}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$node, std\+::queue$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ $>$ \&nodes\+Queue)
+\item 
+std\+::pair$<$ std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$, double $>$, std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$, \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ $>$ $>$ \mbox{\hyperlink{class_my_graph_a476c8a305f7a363d114b89978137d091}{dijkstra\+For\+Origin\+Value}} (T origin\+Node\+Value)
+\item 
+std\+::pair$<$ std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$, double $>$, std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$, \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ $>$ $>$ \mbox{\hyperlink{class_my_graph_a5980cdec513d1edcfcab2f8e9dfdb677}{dijkstra\+For\+Origin}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ origin\+Node)
+\item 
+void \mbox{\hyperlink{class_my_graph_a5b6e5ab2960c49d66e6e170fcef506a3}{sort\+My\+Priority\+Nodes\+Queue}} (std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$, double $\ast$ $>$ $>$ \&my\+Priority\+Nodes\+Queue)
+\item 
+std\+::pair$<$ double, std\+::unordered\+\_\+map$<$ T, T $>$ $>$ \mbox{\hyperlink{class_my_graph_a5c648e1e0f66836d86896b163fb698f2}{prims}} (T start)
+\item 
+std\+::pair$<$ double, std\+::unordered\+\_\+map$<$ T, T $>$ $>$ \mbox{\hyperlink{class_my_graph_a7e5d840bec43bc5b4c322ae94a15e133}{prims}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ start)
+\item 
+std\+::vector$<$ std\+::pair$<$ T, double $>$ $>$ \mbox{\hyperlink{class_my_graph_adfe6079e40aba60a5263dd0e3d2a475f}{path\+Values}} (T node\+Value, T end)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_my_graph_aee5c8ea8e232d5e1027cc697a380e63b}\label{class_my_graph_aee5c8ea8e232d5e1027cc697a380e63b}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!MyGraph@{MyGraph}}
+\index{MyGraph@{MyGraph}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{MyGraph()}{MyGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::\mbox{\hyperlink{class_my_graph}{My\+Graph}}}
+
+Creates an object of the class \mbox{\hyperlink{class_my_graph}{My\+Graph}} \mbox{\Hypertarget{class_my_graph_a66d2e72cd79dd777c82771eb6a750894}\label{class_my_graph_a66d2e72cd79dd777c82771eb6a750894}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!MyGraph@{MyGraph}}
+\index{MyGraph@{MyGraph}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{MyGraph()}{MyGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::\mbox{\hyperlink{class_my_graph}{My\+Graph}} (\begin{DoxyParamCaption}\item[{T}]{first\+Node\+Value }\end{DoxyParamCaption})}
+
+Creates an object of the class \mbox{\hyperlink{class_my_graph}{My\+Graph}} given the first node 
+\begin{DoxyParams}{Parameters}
+{\em first\+Node\+Value} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_my_graph_ac4ce326e65b7aba5b7c8d636239756d7}\label{class_my_graph_ac4ce326e65b7aba5b7c8d636239756d7}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!addAdjToQueue@{addAdjToQueue}}
+\index{addAdjToQueue@{addAdjToQueue}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addAdjToQueue()}{addAdjToQueue()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::add\+Adj\+To\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$}]{node,  }\item[{std\+::queue$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ $>$ \&}]{nodes\+Queue }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+{\em nodes\+Queue} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_my_graph_a4cbd4a3ef391ab7dfa92e65f446508f7}\label{class_my_graph_a4cbd4a3ef391ab7dfa92e65f446508f7}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::add\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$}]{node\+Origin,  }\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$}]{node\+Dest,  }\item[{double}]{weight }\end{DoxyParamCaption})}
+
+Adds an edge between two nodes given the nodes Return True if the edge was created, return False otherwise \mbox{\hyperlink{class_time}{Time}} complexity\+: O(n) 
+\begin{DoxyParams}{Parameters}
+{\em node\+Origin} & \\
+\hline
+{\em node\+Dest} & \\
+\hline
+{\em weight} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_a699fa0ad3a41b2e116cfb2cf3331cbb4}\label{class_my_graph_a699fa0ad3a41b2e116cfb2cf3331cbb4}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::add\+Edge (\begin{DoxyParamCaption}\item[{T}]{origin\+Node\+Value,  }\item[{T}]{dest\+Node\+Value,  }\item[{double}]{weight }\end{DoxyParamCaption})}
+
+Adds an edge between two nodes given their values Return True if the edge was created, return False otherwise \mbox{\hyperlink{class_time}{Time}} complexity\+: O(n) 
+\begin{DoxyParams}{Parameters}
+{\em origin\+Node\+Value} & \\
+\hline
+{\em dest\+Node\+Value} & \\
+\hline
+{\em weight} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_a8dc6d920ea9108bbab81639b19856c93}\label{class_my_graph_a8dc6d920ea9108bbab81639b19856c93}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!addNode@{addNode}}
+\index{addNode@{addNode}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addNode()}{addNode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::add\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$}]{new\+Node }\end{DoxyParamCaption})}
+
+Adds a new node to the graph 
+\begin{DoxyParams}{Parameters}
+{\em new\+Node} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_my_graph_a668d4d20d4b9c3c0e8539212eac52fa4}\label{class_my_graph_a668d4d20d4b9c3c0e8539212eac52fa4}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!addNode@{addNode}}
+\index{addNode@{addNode}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addNode()}{addNode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::add\+Node (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption})}
+
+Adds a node to the graph given its value 
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_my_graph_a1cb34faf6c76b4e46e0bd4ccd04171fc}\label{class_my_graph_a1cb34faf6c76b4e46e0bd4ccd04171fc}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!BFS@{BFS}}
+\index{BFS@{BFS}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{BFS()}{BFS()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ $>$ \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::BFS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ \&}]{node }\end{DoxyParamCaption})}
+
+BFS algorithm Returns pointers to nodes in the order they were visited \mbox{\hyperlink{class_time}{Time}} complexity\+: O(N + E) 
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_a5980cdec513d1edcfcab2f8e9dfdb677}\label{class_my_graph_a5980cdec513d1edcfcab2f8e9dfdb677}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!dijkstraForOrigin@{dijkstraForOrigin}}
+\index{dijkstraForOrigin@{dijkstraForOrigin}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dijkstraForOrigin()}{dijkstraForOrigin()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::pair$<$ std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$, double $>$, std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$, \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ $>$ $>$ \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::dijkstra\+For\+Origin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$}]{origin\+Node }\end{DoxyParamCaption})}
+
+Dijkstra\textquotesingle{}s algorithm \mbox{\hyperlink{class_time}{Time}} complexity\+: O(E×log(\+N)), assuming that E ≥ V 
+\begin{DoxyParams}{Parameters}
+{\em origin\+Node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_a476c8a305f7a363d114b89978137d091}\label{class_my_graph_a476c8a305f7a363d114b89978137d091}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!dijkstraForOriginValue@{dijkstraForOriginValue}}
+\index{dijkstraForOriginValue@{dijkstraForOriginValue}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dijkstraForOriginValue()}{dijkstraForOriginValue()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::pair$<$ std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$, double $>$, std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$, \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ $>$ $>$ \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::dijkstra\+For\+Origin\+Value (\begin{DoxyParamCaption}\item[{T}]{origin\+Node\+Value }\end{DoxyParamCaption})}
+
+Calls the Dijkstra\textquotesingle{}s algorithm given a node\textquotesingle{}s value \mbox{\hyperlink{class_time}{Time}} complexity\+: O(E×log(\+N)), assuming that E ≥ V 
+\begin{DoxyParams}{Parameters}
+{\em origin\+Node\+Value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_aa1e79e6f58cf33c28dbc7605d382efa5}\label{class_my_graph_aa1e79e6f58cf33c28dbc7605d382efa5}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!eraseEdge@{eraseEdge}}
+\index{eraseEdge@{eraseEdge}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{eraseEdge()}{eraseEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::erase\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$}]{origin,  }\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$}]{dest }\end{DoxyParamCaption})}
+
+Erases an edge given the nodes 
+\begin{DoxyParams}{Parameters}
+{\em origin} & \\
+\hline
+{\em dest} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_my_graph_a85c03106936e31d3678e4757ff60f80f}\label{class_my_graph_a85c03106936e31d3678e4757ff60f80f}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!eraseEdge@{eraseEdge}}
+\index{eraseEdge@{eraseEdge}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{eraseEdge()}{eraseEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::erase\+Edge (\begin{DoxyParamCaption}\item[{T}]{origin\+Value,  }\item[{T}]{dest\+Value }\end{DoxyParamCaption})}
+
+Removes an edge given the node\textquotesingle{}s values 
+\begin{DoxyParams}{Parameters}
+{\em origin\+Value} & \\
+\hline
+{\em dest\+Value} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_my_graph_abe5cd86904131606f5a731e2a4bd0383}\label{class_my_graph_abe5cd86904131606f5a731e2a4bd0383}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!findNodeIndex@{findNodeIndex}}
+\index{findNodeIndex@{findNodeIndex}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findNodeIndex()}{findNodeIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::find\+Node\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$}]{node }\end{DoxyParamCaption})}
+
+Finds a node\textquotesingle{}s index given its value The function uses operator== to compare the given value with the values present in the Nodes Return the index of the first occurrence Return -\/1 if no node was found \mbox{\hyperlink{class_time}{Time}} complexity\+: O(\+N) 
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_a5d3c64dd8ad1120ff199fcc8365f3e77}\label{class_my_graph_a5d3c64dd8ad1120ff199fcc8365f3e77}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!findNodeIndex@{findNodeIndex}}
+\index{findNodeIndex@{findNodeIndex}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findNodeIndex()}{findNodeIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::find\+Node\+Index (\begin{DoxyParamCaption}\item[{T}]{Node\+Value }\end{DoxyParamCaption})}
+
+Finds a node\textquotesingle{}s index given its value The function uses operator== to compare the given value with the values present in the Nodes Return the index of the first occurrence Return -\/1 if no node was found \mbox{\hyperlink{class_time}{Time}} complexity\+: O(\+N) 
+\begin{DoxyParams}{Parameters}
+{\em Node\+Value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_abe9d305e4b2fc3c035735f6cf02d6b53}\label{class_my_graph_abe9d305e4b2fc3c035735f6cf02d6b53}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!getAllNodes@{getAllNodes}}
+\index{getAllNodes@{getAllNodes}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getAllNodes()}{getAllNodes()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $>$ \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::get\+All\+Nodes}
+
+Returns all nodes \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_a123b04a2970a036cfa5a262d84525523}\label{class_my_graph_a123b04a2970a036cfa5a262d84525523}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!getAllNodesPtr@{getAllNodesPtr}}
+\index{getAllNodesPtr@{getAllNodesPtr}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getAllNodesPtr()}{getAllNodesPtr()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ $>$ \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::get\+All\+Nodes\+Ptr}
+
+Returns all node\textquotesingle{}s pointers \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_adfe6079e40aba60a5263dd0e3d2a475f}\label{class_my_graph_adfe6079e40aba60a5263dd0e3d2a475f}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!pathValues@{pathValues}}
+\index{pathValues@{pathValues}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pathValues()}{pathValues()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ std\+::pair$<$ T, double $>$ $>$ \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::path\+Values (\begin{DoxyParamCaption}\item[{T}]{node\+Value,  }\item[{T}]{end }\end{DoxyParamCaption})}
+
+Returns a vector with the \mbox{\hyperlink{class_stop}{Stop}} and the distance to the origin 
+\begin{DoxyParams}{Parameters}
+{\em node\+Value} & \\
+\hline
+{\em end} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_a7e5d840bec43bc5b4c322ae94a15e133}\label{class_my_graph_a7e5d840bec43bc5b4c322ae94a15e133}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!prims@{prims}}
+\index{prims@{prims}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{prims()}{prims()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::pair$<$ double, std\+::unordered\+\_\+map$<$ T, T $>$ $>$ \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::prims (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$}]{start }\end{DoxyParamCaption})}
+
+Prim\textquotesingle{}s algorithm given a node \mbox{\hyperlink{class_time}{Time}} complexity\+: O(E×log(\+E)) 
+\begin{DoxyParams}{Parameters}
+{\em start} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_a5c648e1e0f66836d86896b163fb698f2}\label{class_my_graph_a5c648e1e0f66836d86896b163fb698f2}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!prims@{prims}}
+\index{prims@{prims}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{prims()}{prims()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::pair$<$ double, std\+::unordered\+\_\+map$<$ T, T $>$ $>$ \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::prims (\begin{DoxyParamCaption}\item[{T}]{start }\end{DoxyParamCaption})}
+
+Prim\textquotesingle{}s algorithm given a certain value \mbox{\hyperlink{class_time}{Time}} complexity\+: O(E×log(\+E)) 
+\begin{DoxyParams}{Parameters}
+{\em start} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_ad8e86e02b11da6458d721bb9ed40947c}\label{class_my_graph_ad8e86e02b11da6458d721bb9ed40947c}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!removeNode@{removeNode}}
+\index{removeNode@{removeNode}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{removeNode()}{removeNode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::remove\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$}]{node }\end{DoxyParamCaption})}
+
+Removes a node given the node 
+\begin{DoxyParams}{Parameters}
+{\em node} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_my_graph_a1550a21ec756508fb89262e0cc529671}\label{class_my_graph_a1550a21ec756508fb89262e0cc529671}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!removeNode@{removeNode}}
+\index{removeNode@{removeNode}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{removeNode()}{removeNode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::remove\+Node (\begin{DoxyParamCaption}\item[{T}]{node\+Value }\end{DoxyParamCaption})}
+
+Removes a node given its value 
+\begin{DoxyParams}{Parameters}
+{\em node\+Value} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_my_graph_af8cf18e2b2b698df88c7258654673bb4}\label{class_my_graph_af8cf18e2b2b698df88c7258654673bb4}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!setAllNotVisited@{setAllNotVisited}}
+\index{setAllNotVisited@{setAllNotVisited}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setAllNotVisited()}{setAllNotVisited()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::set\+All\+Not\+Visited}
+
+Sets all nodes to not visited \mbox{\Hypertarget{class_my_graph_a2b99df0ee8b208d793d6bfabb31af32b}\label{class_my_graph_a2b99df0ee8b208d793d6bfabb31af32b}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!size@{size}}
+\index{size@{size}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+unsigned int \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::size}
+
+Returns the size of the vector containing the nodes \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_my_graph_a5b6e5ab2960c49d66e6e170fcef506a3}\label{class_my_graph_a5b6e5ab2960c49d66e6e170fcef506a3}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!sortMyPriorityNodesQueue@{sortMyPriorityNodesQueue}}
+\index{sortMyPriorityNodesQueue@{sortMyPriorityNodesQueue}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{sortMyPriorityNodesQueue()}{sortMyPriorityNodesQueue()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::sort\+My\+Priority\+Nodes\+Queue (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$, double $\ast$ $>$ $>$ \&}]{my\+Priority\+Nodes\+Queue }\end{DoxyParamCaption})}
+
+Sorts the priority nodes\textquotesingle{} queue 
+\begin{DoxyParams}{Parameters}
+{\em my\+Priority\+Nodes\+Queue} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_my_graph_a655fd38738198a6d8be4f7a0f4734732}\label{class_my_graph_a655fd38738198a6d8be4f7a0f4734732}} 
+\index{MyGraph$<$ T $>$@{MyGraph$<$ T $>$}!valueToBFS@{valueToBFS}}
+\index{valueToBFS@{valueToBFS}!MyGraph$<$ T $>$@{MyGraph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{valueToBFS()}{valueToBFS()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ $>$ \mbox{\hyperlink{class_my_graph}{My\+Graph}}$<$ T $>$\+::value\+To\+BFS (\begin{DoxyParamCaption}\item[{T \&}]{node\+Value }\end{DoxyParamCaption})}
+
+Calls the BFS algorithm by getting the node\textquotesingle{}s value 
+\begin{DoxyParams}{Parameters}
+{\em node\+Value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Classes/Program.\+h\item 
+My\+Graph.\+h\item 
+My\+Graph.\+cpp\end{DoxyCompactItemize}
