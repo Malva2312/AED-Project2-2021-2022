@@ -505,44 +505,8 @@ void Menu::displayBestAlternatives(string orgCode, string destCode) {
     vector<Stop> path = program->shortestPath(program->choosePath(option), bestPath.second.first, bestPath.second.second);
 
 
-    string currentLine =  "Walking";
-    for (string it : path.at(0).getLines()){
-        for(string ii : path.at(1).getLines()){
-            if (it == ii ){
-                currentLine = it;
-            }
-        }
-    }
 
-    string lastLine;
-    string nexLine;
-/*
-    reverse(path.begin(), path.end());
-    cout << path.at(0).getCode() << " --- " << path.at(0).getName() << " --- " << currentLine <<endl;
-    for (unsigned idx = 1; idx < path.size() -1; idx++){
-        lastLine = currentLine;
-        vector<string> lines = path.at(idx).getLines();
-        if (find(path.at(idx).getLines().begin(),path.at(idx).getLines().end(), lastLine))
-        cout << path.at(idx).getCode() << " --- " << path.at(idx).getName() << " --- " << currentLine <<endl;
-    }*/
-    for (auto it : path){
-        cout << it.getCode() <<" - " <<it.getName() << endl;
+    for (unsigned idx = path.size() -1; idx >= 0; idx--){
+        cout << path.at(idx).getCode() << " --- " << path.at(idx).getName() << " --- " <<endl;
     }
-
 }
-
-
-/* TODO: Fica aqui uma lista de features a implementar, a medida que formos fazendo tira-se
- *
- * ==============
- * >> Opcao de listar as melhores viagens (categorizadas por distancia, tempo, menos paragens) apartir da propria localizacao//TODO: On it ~Belluschi
- * >> Encontrar a paragem mais proxima da localizacao > Listamos as paragens de varias linhas e a distancia ate elas DONE
- * >> Adicionar filtro ao de cima? LATER
- * >> Opcao de visualizar o mapa: Seria algo como listar as linhas e poder escolher a linha pretendida, depois listar as paragens e poder escolher a paragem
- * pretendida, quando selecionar a paragem poder ver as paragens mais perto e as paragens/linhas que se conectam a esta. DONE
- *
- *
- *
- *
- */
-
