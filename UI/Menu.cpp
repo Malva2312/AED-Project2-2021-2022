@@ -462,7 +462,6 @@ void Menu::travel(string orgCode, string destCode) {
                 else if (destCode == orgCode)
                     cout << "The origin and the destination can not be the same." << endl;
                 else
-                    cout << "\n--> Calculating path <--" << endl;
                     displayBestAlternatives(orgCode, destCode);
                 break;
             }
@@ -473,17 +472,47 @@ void Menu::travel(string orgCode, string destCode) {
 }
 
 void Menu::displayBestAlternatives(string orgCode, string destCode) {
-    int opt = 1; //1 if distancia //2 if less stops
+
+    double range = 0.1; //changeable but not on running
+    double rangeStart = range;
+    double rangeEnd = range;
+    cout << endl << "Pick best path:" << endl;
+    cout << "[1] Path with minimum distance" << endl;
+    cout << "[2] Path with less stops" << endl;
+    vector<char> options = {'1', '2'};
+    int option = 1;
+    char opt = readOptionInput(options);
+
+    switch (opt) {
+        case '1': {//1 if min distance
+            int option = 1;
+            break;
+        }
+        case '2': {//2 if less stops
+            int option = 2;
+            break;
+        }
+        default:
+            cout << "Wrong input." << endl;
+
+    }
+
+    cout << "\n--> Calculating path <--" << endl;
 
     auto bestPath = program->bestPath(program->findStop(orgCode).getCoordinates(), program->findStop(destCode).getCoordinates(),
-                                      1, 1, opt);
+                                      rangeStart, rangeEnd, option);
 
-    vector<Stop> path = program->shortestPath(program->choosePath(opt), bestPath.second.first, bestPath.second.second);
+    vector<Stop> path = program->shortestPath(program->choosePath(option), bestPath.second.first, bestPath.second.second);
 
+/*
+    string lastLine = "";
+    string nextlin = "";*/
+    reverse(path.begin(), path.end());
     for (Stop stop : path){
+
         cout << stop.getCode() << " --- " << stop.getName() << endl;
     }
-    //TODO
+
 }
 
 

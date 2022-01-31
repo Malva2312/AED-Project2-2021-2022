@@ -64,7 +64,7 @@ private:
 
     std::vector<Line> nightLines;
 
-    double range = 10; //m
+    double range = 0; //m //changeable but not on running
 
 public:
     /**

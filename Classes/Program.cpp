@@ -335,7 +335,7 @@ pair<double, pair<Stop, Stop>> Program::bestPath(Coordinates orig, Coordinates d
     vector<Stop *> allStarts = closestInRange(orig, rangeStart);
     vector<Stop *> allEnds = closestInRange(dest, rangeEnd);
 
-    addWalk(opt, graph, *allStarts.at(0));
+    //if (range != 0) addWalk(opt, graph, *allStarts.at(0));
 
     pair<double, pair<Stop, Stop>> minDis;
 
