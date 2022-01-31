@@ -507,6 +507,6 @@ void Menu::displayBestAlternatives(string orgCode, string destCode) {
 
     reverse(path.begin(), path.end());
     for (Stop stop : path){
-        cout << stop.getCode() << " --- " << stop.getName() << " --- " <<endl;
+        cout << stop.getCode() << " --- " << stop.getName() << endl;
     }
 }
