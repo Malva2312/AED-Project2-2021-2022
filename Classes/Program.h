@@ -64,7 +64,7 @@ private:
 
     std::vector<Line> nightLines;
 
-    double range = 20; //m
+    double range = 10; //m
 
 public:
     /**
