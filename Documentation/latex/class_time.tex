@@ -1,0 +1,334 @@
+\hypertarget{class_time}{}\doxysection{Time Class Reference}
+\label{class_time}\index{Time@{Time}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_time_aaeefe670d195d8f1bca1a99ac0b705ea}{Time}} (int min, int hour, int day, int month, int year)
+\item 
+void \mbox{\hyperlink{class_time_ae848447a3e0479437a7eda4dab906ef1}{set\+Min}} (int min)
+\item 
+void \mbox{\hyperlink{class_time_ab77d5f9f5fa8582d23a70d418ab6a182}{set\+Hour}} (int hour)
+\item 
+void \mbox{\hyperlink{class_time_a31d352e8cf6a025b275e281689e100cd}{set\+Day}} (int day)
+\item 
+void \mbox{\hyperlink{class_time_aaa60fd08e34a3d4c106e7871c1fcbbdb}{set\+Month}} (int month)
+\item 
+void \mbox{\hyperlink{class_time_a6d590de7818f9ab16bea1ff8e2a316dd}{set\+Year}} (int year)
+\item 
+int \mbox{\hyperlink{class_time_a8cd37cf10b562d7f6efb418e7e0aa90a}{get\+Min}} () const
+\item 
+int \mbox{\hyperlink{class_time_aacb846812dccbf244d52e0f237ad0026}{get\+Hour}} () const
+\item 
+int \mbox{\hyperlink{class_time_a1a0aaa223057af66b55e0287a6219262}{get\+Day}} () const
+\item 
+int \mbox{\hyperlink{class_time_a92ebae2cc25d4d448b934ab632577cb7}{get\+Month}} () const
+\item 
+int \mbox{\hyperlink{class_time_ade7face40dbabb5ee40b34e2584ca731}{get\+Year}} () const
+\item 
+bool \mbox{\hyperlink{class_time_afd8ee47bdb2c30567556943f6977956a}{is\+Leap\+Year}} (int year) const
+\item 
+void \mbox{\hyperlink{class_time_a3daeb67de59f3979697f2bf55b69f0eb}{set\+To\+Valid}} ()
+\item 
+bool \mbox{\hyperlink{class_time_aa8184c385a50f43a4dc05723b2eba60f}{is\+Valid}} () const
+\item 
+int \mbox{\hyperlink{class_time_a65a1458faac28ee98c7b7ffe63072129}{get\+Month\+Max\+Days}} (int month, int year) const
+\item 
+\mbox{\hyperlink{class_time}{Time}} \mbox{\hyperlink{class_time_aece87081109238ca564741674d59e504}{operator-\/}} (\mbox{\hyperlink{class_time}{Time}} time1) const
+\item 
+\mbox{\hyperlink{class_time}{Time}} \mbox{\hyperlink{class_time_aa5d924b6bbd52e2b8241a6cc5f3fdb2b}{operator+}} (\mbox{\hyperlink{class_time}{Time}} time1) const
+\item 
+\mbox{\hyperlink{class_time}{Time}} \mbox{\hyperlink{class_time_aa41c3a642aa4dff3a4620cd691c9dd22}{operator+}} (int delta)
+\item 
+\mbox{\hyperlink{class_time}{Time}} \mbox{\hyperlink{class_time_a9f2e5b274af62bf4730f4cd5f4154722}{operator-\/}} (int delta)
+\item 
+bool \mbox{\hyperlink{class_time_a120b21283f098e7cc19a46bdba451c73}{operator$<$}} (\mbox{\hyperlink{class_time}{Time}} time1)
+\item 
+bool \mbox{\hyperlink{class_time_a27c9fe1d00d6584e8c5e24a2f0057f3d}{operator$>$}} (\mbox{\hyperlink{class_time}{Time}} time1)
+\item 
+bool \mbox{\hyperlink{class_time_a16219e1e7fecd0e24cd58203db78e395}{operator==}} (\mbox{\hyperlink{class_time}{Time}} time1)
+\item 
+std\+::string \mbox{\hyperlink{class_time_afe956f09905ee2dd683a055fee845b9b}{to\+String}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_time_aaeefe670d195d8f1bca1a99ac0b705ea}\label{class_time_aaeefe670d195d8f1bca1a99ac0b705ea}} 
+\index{Time@{Time}!Time@{Time}}
+\index{Time@{Time}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{Time()}{Time()}}
+{\footnotesize\ttfamily Time\+::\+Time (\begin{DoxyParamCaption}\item[{int}]{min,  }\item[{int}]{hour,  }\item[{int}]{day,  }\item[{int}]{month,  }\item[{int}]{year }\end{DoxyParamCaption})}
+
+Creates an object of the class \mbox{\hyperlink{class_time}{Time}}. 
+\begin{DoxyParams}{Parameters}
+{\em min} & \\
+\hline
+{\em hour} & \\
+\hline
+{\em day} & \\
+\hline
+{\em month} & \\
+\hline
+{\em year} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_time_a1a0aaa223057af66b55e0287a6219262}\label{class_time_a1a0aaa223057af66b55e0287a6219262}} 
+\index{Time@{Time}!getDay@{getDay}}
+\index{getDay@{getDay}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{getDay()}{getDay()}}
+{\footnotesize\ttfamily int Time\+::get\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the day of a given time. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_aacb846812dccbf244d52e0f237ad0026}\label{class_time_aacb846812dccbf244d52e0f237ad0026}} 
+\index{Time@{Time}!getHour@{getHour}}
+\index{getHour@{getHour}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{getHour()}{getHour()}}
+{\footnotesize\ttfamily int Time\+::get\+Hour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the hours of a given time. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_a8cd37cf10b562d7f6efb418e7e0aa90a}\label{class_time_a8cd37cf10b562d7f6efb418e7e0aa90a}} 
+\index{Time@{Time}!getMin@{getMin}}
+\index{getMin@{getMin}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{getMin()}{getMin()}}
+{\footnotesize\ttfamily int Time\+::get\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the minutes of a given time. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_a92ebae2cc25d4d448b934ab632577cb7}\label{class_time_a92ebae2cc25d4d448b934ab632577cb7}} 
+\index{Time@{Time}!getMonth@{getMonth}}
+\index{getMonth@{getMonth}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{getMonth()}{getMonth()}}
+{\footnotesize\ttfamily int Time\+::get\+Month (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the month of a given time. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_a65a1458faac28ee98c7b7ffe63072129}\label{class_time_a65a1458faac28ee98c7b7ffe63072129}} 
+\index{Time@{Time}!getMonthMaxDays@{getMonthMaxDays}}
+\index{getMonthMaxDays@{getMonthMaxDays}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{getMonthMaxDays()}{getMonthMaxDays()}}
+{\footnotesize\ttfamily int Time\+::get\+Month\+Max\+Days (\begin{DoxyParamCaption}\item[{int}]{month,  }\item[{int}]{year }\end{DoxyParamCaption}) const}
+
+Returns the maximum days a specific month can have. 
+\begin{DoxyParams}{Parameters}
+{\em month} & \\
+\hline
+{\em year} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_ade7face40dbabb5ee40b34e2584ca731}\label{class_time_ade7face40dbabb5ee40b34e2584ca731}} 
+\index{Time@{Time}!getYear@{getYear}}
+\index{getYear@{getYear}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{getYear()}{getYear()}}
+{\footnotesize\ttfamily int Time\+::get\+Year (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the year of a given time. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_afd8ee47bdb2c30567556943f6977956a}\label{class_time_afd8ee47bdb2c30567556943f6977956a}} 
+\index{Time@{Time}!isLeapYear@{isLeapYear}}
+\index{isLeapYear@{isLeapYear}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{isLeapYear()}{isLeapYear()}}
+{\footnotesize\ttfamily bool Time\+::is\+Leap\+Year (\begin{DoxyParamCaption}\item[{int}]{year }\end{DoxyParamCaption}) const}
+
+Checks if a certain year is a leap year. 
+\begin{DoxyParams}{Parameters}
+{\em year} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_aa8184c385a50f43a4dc05723b2eba60f}\label{class_time_aa8184c385a50f43a4dc05723b2eba60f}} 
+\index{Time@{Time}!isValid@{isValid}}
+\index{isValid@{isValid}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool Time\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Checks if the created \mbox{\hyperlink{class_time}{Time}} object is valid. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_aa41c3a642aa4dff3a4620cd691c9dd22}\label{class_time_aa41c3a642aa4dff3a4620cd691c9dd22}} 
+\index{Time@{Time}!operator+@{operator+}}
+\index{operator+@{operator+}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_time}{Time}} Time\+::operator+ (\begin{DoxyParamCaption}\item[{int}]{delta }\end{DoxyParamCaption})}
+
+Adds a certain amount of minutes to a \mbox{\hyperlink{class_time}{Time}} object. 
+\begin{DoxyParams}{Parameters}
+{\em delta} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_aa5d924b6bbd52e2b8241a6cc5f3fdb2b}\label{class_time_aa5d924b6bbd52e2b8241a6cc5f3fdb2b}} 
+\index{Time@{Time}!operator+@{operator+}}
+\index{operator+@{operator+}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_time}{Time}} Time\+::operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_time}{Time}}}]{time1 }\end{DoxyParamCaption}) const}
+
+Adds one \mbox{\hyperlink{class_time}{Time}} object to another. 
+\begin{DoxyParams}{Parameters}
+{\em time1} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_a9f2e5b274af62bf4730f4cd5f4154722}\label{class_time_a9f2e5b274af62bf4730f4cd5f4154722}} 
+\index{Time@{Time}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_time}{Time}} Time\+::operator-\/ (\begin{DoxyParamCaption}\item[{int}]{delta }\end{DoxyParamCaption})}
+
+Adds a certain amount of minutes to a \mbox{\hyperlink{class_time}{Time}} object. 
+\begin{DoxyParams}{Parameters}
+{\em delta} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_aece87081109238ca564741674d59e504}\label{class_time_aece87081109238ca564741674d59e504}} 
+\index{Time@{Time}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_time}{Time}} Time\+::operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_time}{Time}}}]{time1 }\end{DoxyParamCaption}) const}
+
+Subtracts one \mbox{\hyperlink{class_time}{Time}} object to another. 
+\begin{DoxyParams}{Parameters}
+{\em time1} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_a120b21283f098e7cc19a46bdba451c73}\label{class_time_a120b21283f098e7cc19a46bdba451c73}} 
+\index{Time@{Time}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Time\+::operator$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_time}{Time}}}]{time1 }\end{DoxyParamCaption})}
+
+Checks if one \mbox{\hyperlink{class_time}{Time}} object is smaller than another. 
+\begin{DoxyParams}{Parameters}
+{\em time1} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_a16219e1e7fecd0e24cd58203db78e395}\label{class_time_a16219e1e7fecd0e24cd58203db78e395}} 
+\index{Time@{Time}!operator==@{operator==}}
+\index{operator==@{operator==}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Time\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_time}{Time}}}]{time1 }\end{DoxyParamCaption})}
+
+Checks if two \mbox{\hyperlink{class_time}{Time}} objects are equal. 
+\begin{DoxyParams}{Parameters}
+{\em time1} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_a27c9fe1d00d6584e8c5e24a2f0057f3d}\label{class_time_a27c9fe1d00d6584e8c5e24a2f0057f3d}} 
+\index{Time@{Time}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Time\+::operator$>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_time}{Time}}}]{time1 }\end{DoxyParamCaption})}
+
+Checks if one \mbox{\hyperlink{class_time}{Time}} object is greater than another. 
+\begin{DoxyParams}{Parameters}
+{\em time1} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_time_a31d352e8cf6a025b275e281689e100cd}\label{class_time_a31d352e8cf6a025b275e281689e100cd}} 
+\index{Time@{Time}!setDay@{setDay}}
+\index{setDay@{setDay}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{setDay()}{setDay()}}
+{\footnotesize\ttfamily void Time\+::set\+Day (\begin{DoxyParamCaption}\item[{int}]{day }\end{DoxyParamCaption})}
+
+Sets the day to a certain value. 
+\begin{DoxyParams}{Parameters}
+{\em day} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_time_ab77d5f9f5fa8582d23a70d418ab6a182}\label{class_time_ab77d5f9f5fa8582d23a70d418ab6a182}} 
+\index{Time@{Time}!setHour@{setHour}}
+\index{setHour@{setHour}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{setHour()}{setHour()}}
+{\footnotesize\ttfamily void Time\+::set\+Hour (\begin{DoxyParamCaption}\item[{int}]{hour }\end{DoxyParamCaption})}
+
+Sets the hours to a certain value. 
+\begin{DoxyParams}{Parameters}
+{\em hour} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_time_ae848447a3e0479437a7eda4dab906ef1}\label{class_time_ae848447a3e0479437a7eda4dab906ef1}} 
+\index{Time@{Time}!setMin@{setMin}}
+\index{setMin@{setMin}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{setMin()}{setMin()}}
+{\footnotesize\ttfamily void Time\+::set\+Min (\begin{DoxyParamCaption}\item[{int}]{min }\end{DoxyParamCaption})}
+
+Sets the minutes to a certain value. 
+\begin{DoxyParams}{Parameters}
+{\em min} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_time_aaa60fd08e34a3d4c106e7871c1fcbbdb}\label{class_time_aaa60fd08e34a3d4c106e7871c1fcbbdb}} 
+\index{Time@{Time}!setMonth@{setMonth}}
+\index{setMonth@{setMonth}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{setMonth()}{setMonth()}}
+{\footnotesize\ttfamily void Time\+::set\+Month (\begin{DoxyParamCaption}\item[{int}]{month }\end{DoxyParamCaption})}
+
+Sets the month to a certain value. 
+\begin{DoxyParams}{Parameters}
+{\em month} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_time_a3daeb67de59f3979697f2bf55b69f0eb}\label{class_time_a3daeb67de59f3979697f2bf55b69f0eb}} 
+\index{Time@{Time}!setToValid@{setToValid}}
+\index{setToValid@{setToValid}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{setToValid()}{setToValid()}}
+{\footnotesize\ttfamily void Time\+::set\+To\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sets the values given to the class constructor into a valid object. \mbox{\Hypertarget{class_time_a6d590de7818f9ab16bea1ff8e2a316dd}\label{class_time_a6d590de7818f9ab16bea1ff8e2a316dd}} 
+\index{Time@{Time}!setYear@{setYear}}
+\index{setYear@{setYear}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{setYear()}{setYear()}}
+{\footnotesize\ttfamily void Time\+::set\+Year (\begin{DoxyParamCaption}\item[{int}]{year }\end{DoxyParamCaption})}
+
+Sets the year to a certain value. 
+\begin{DoxyParams}{Parameters}
+{\em year} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_time_afe956f09905ee2dd683a055fee845b9b}\label{class_time_afe956f09905ee2dd683a055fee845b9b}} 
+\index{Time@{Time}!toString@{toString}}
+\index{toString@{toString}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily string Time\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Transforms a \mbox{\hyperlink{class_time}{Time}} object into a string. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Classes/Time.\+h\item 
+Classes/Time.\+cpp\end{DoxyCompactItemize}

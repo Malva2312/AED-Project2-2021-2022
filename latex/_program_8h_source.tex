@@ -1,0 +1,109 @@
+\hypertarget{_program_8h_source}{}\doxysection{Program.\+h}
+\label{_program_8h_source}\index{Classes/Program.h@{Classes/Program.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by asus on 25/01/2022.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef TRABALHOAED2\_PROGRAM\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define TRABALHOAED2\_PROGRAM\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}Coordinates.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}../UI/Menu.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../MyGraph.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../MyGraph.cpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}../Classes/Stop.h"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_menu}{Menu}};}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_stop}{Stop}};}
+\DoxyCodeLine{16 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{class_my_graph}{MyGraph}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_connection}{Connection}} \{}
+\DoxyCodeLine{25     \mbox{\hyperlink{struct_connection_a08d0515a6da44d6279d0f568521a4c49}{Connection}}(std::string org\_, std::string dest\_, \textcolor{keywordtype}{int} dir\_) : org(org\_), dest(dest\_), dir(dir\_) \{\}}
+\DoxyCodeLine{26     std::string org;}
+\DoxyCodeLine{27     std::string dest;}
+\DoxyCodeLine{28     \textcolor{keywordtype}{int} dir;}
+\DoxyCodeLine{29 \};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_line}{Line}} \{}
+\DoxyCodeLine{37     \mbox{\hyperlink{struct_line_ae877e078c75d2f8217361129feea832d}{Line}}(std::string code\_, std::string name\_) : code(code\_), name(name\_) \{\}}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{struct_line_a175b8ea33a9e3d2d89d7867c6ab8e76a}{addConnection}}(std::string org\_, std::string dest\_, \textcolor{keywordtype}{int} dir\_) \{}
+\DoxyCodeLine{45         connections.emplace\_back(org\_, dest\_, dir\_);}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47     std::string code;}
+\DoxyCodeLine{48     std::string name;}
+\DoxyCodeLine{49     vector<Connection> connections;}
+\DoxyCodeLine{50     \textcolor{keywordtype}{bool} available = \textcolor{keyword}{true};}
+\DoxyCodeLine{51 \};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{class }\mbox{\hyperlink{class_program}{Program}} \{}
+\DoxyCodeLine{54 \textcolor{keyword}{private}:}
+\DoxyCodeLine{55     \textcolor{keywordtype}{bool} nightSchedule = \textcolor{keyword}{false};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     std::vector<Stop> allStops;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \mbox{\hyperlink{class_menu}{Menu}} menu = \mbox{\hyperlink{class_menu}{Menu}}(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \mbox{\hyperlink{class_coordinates}{Coordinates}} userCoordinates = \mbox{\hyperlink{class_coordinates}{Coordinates}}(0,0);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     std::vector<Line> dayLines;}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     std::vector<Line> nightLines;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{double} range = 20; \textcolor{comment}{//m}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{keyword}{public}:}
+\DoxyCodeLine{73     \mbox{\hyperlink{class_program_aaefaa0df08f3484476fc4d61e97acbdc}{Program}}();}
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_program_aa361a7af626b5d17d2b169d71d7cddc4}{initializeProgram}}();}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{83     std::vector<Stop> \mbox{\hyperlink{class_program_ac26d1498e8d5752925f4208d441ff6fe}{getAllStops}}();}
+\DoxyCodeLine{88     std::vector<Stop *>\mbox{\hyperlink{class_program_a8ff4078daada2023d43269e674539cdb}{getAllStopsPtr}}();}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_program_ac22b0835b4473141db2762513d67f658}{setUserLocation}}(\mbox{\hyperlink{class_coordinates}{Coordinates}} coordinates);}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{100     \mbox{\hyperlink{class_coordinates}{Coordinates}} \mbox{\hyperlink{class_program_abb9d040389abeee740545674dbe0cc02}{getUserLocation}}();}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{106     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_program_afbc8d5139b510b1deabb2327f4ba5b52}{getNightSchedule}}();}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{112     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_program_ab58ecd643ee8e08c1b8e8078dc3c9f3a}{setNightSchedule}}(\textcolor{keywordtype}{bool} nightSchedule\_);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{119     \mbox{\hyperlink{class_stop}{Stop}}* \mbox{\hyperlink{class_program_a3f870ab0e16a1a2714a20cb55826eb42}{findStopPtr}}(\textcolor{keywordtype}{string} code);}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{126     \mbox{\hyperlink{class_stop}{Stop}} \mbox{\hyperlink{class_program_a3c7ae0a6f7d5a76cbfe548880fb4694f}{findStop}}(\textcolor{keywordtype}{string} code); \textcolor{comment}{//BinarySearch so para o professor gostar lololololol}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{133     \mbox{\hyperlink{class_stop}{Stop}} \mbox{\hyperlink{class_program_a8433385d51d566ed21d4594e12c47c38}{findStopByName}}(\textcolor{keywordtype}{string} name);}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     \textcolor{comment}{// TODO: Um graph para o mapa todo, linhas incluidas. Planeias colocar uma variavel dentro de cada Node com a linha?}}
+\DoxyCodeLine{140 \textcolor{comment}{}    \mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} \mbox{\hyperlink{class_program_ace57fc033235c44eb89362bbde7b11e9}{oportoMap\_minDist}}(); \textcolor{comment}{//= new Graph<Stop> (new Stop());}}
+\DoxyCodeLine{145 \textcolor{comment}{}    \mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} \mbox{\hyperlink{class_program_accfac54370589b9acb8b9358d27a47b8}{oportoMap\_minStops}}();}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{151     vector<Stop *> \mbox{\hyperlink{class_program_a77b4fe3425e313f8e4a202dc65dfd467}{closestStops}}(\mbox{\hyperlink{class_coordinates}{Coordinates}} userCoord);}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{158     \mbox{\hyperlink{struct_line}{Line}} \mbox{\hyperlink{class_program_aa427140622ace1578ae075dec94fa788}{getLineByCode}}(std::string code);}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{164     vector<Line> \mbox{\hyperlink{class_program_a35d980730db27950bea82e22b841320e}{getLines}}();}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{173     vector<Stop> \mbox{\hyperlink{class_program_a0affb081a1f1af45f85dd5d113cb37f3}{shortestPath}}(\mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} graph, \mbox{\hyperlink{class_stop}{Stop}} origin, \mbox{\hyperlink{class_stop}{Stop}} dest);}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{180     \mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} \mbox{\hyperlink{class_program_ae902cd8150f5a9fa8cecc57af6959738}{loadStopsToNodes}}(\mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} \&emptyGraph);}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{187     \mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} \mbox{\hyperlink{class_program_a662fc4a13fe800af70713fdc0f4724b0}{loadLineEdges\_minStops}}(\mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} \&graph);}
+\DoxyCodeLine{193     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_program_a1530e1579fee3daf1a286c26a0836394}{loadConnectionsEdges\_minStops}}(\mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} \&graph, \mbox{\hyperlink{struct_line}{Line}} line);}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{200     \mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} \mbox{\hyperlink{class_program_ae867fe624627c23c3c7601b86ca13620}{loadLineEdges\_minDist}}(\mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} \&graph);}
+\DoxyCodeLine{206     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_program_aba14e0166113eb0d414e717f48873769}{loadConnectionsEdges\_minDist}}(\mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} \&graph, \mbox{\hyperlink{struct_line}{Line}} line);}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{214     vector<Stop *> \mbox{\hyperlink{class_program_aaf349dc41c4e2f3f1c3dff2d1f5cc258}{closestInRange}}(\mbox{\hyperlink{class_coordinates}{Coordinates}} coord, \textcolor{keywordtype}{double} range);}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{221     \mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} \mbox{\hyperlink{class_program_ae495e7384ea49b2f7c22e3f3d16a1c55}{choosePath}}(\textcolor{keywordtype}{int} x);}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{232     pair<double, pair<Stop, Stop>> \mbox{\hyperlink{class_program_a474d4c1b8c9076746b99e7ef5b56bf73}{bestPath}}(\mbox{\hyperlink{class_coordinates}{Coordinates}} orig, \mbox{\hyperlink{class_coordinates}{Coordinates}} dest, \textcolor{keywordtype}{double} rangeStart, \textcolor{keywordtype}{double} rangeEnd, \textcolor{keywordtype}{int} opt);}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{241     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_program_a20c6c40ce16c4bb89967fd9efbdc5fd3}{addWalk}}(\textcolor{keywordtype}{int} opt, \mbox{\hyperlink{class_my_graph}{MyGraph<Stop>}} \&graph, \mbox{\hyperlink{class_stop}{Stop}} start);}
+\DoxyCodeLine{242 \};}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//TRABALHOAED2\_PROGRAM\_H}}
+
+\end{DoxyCode}

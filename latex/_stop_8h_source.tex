@@ -1,0 +1,52 @@
+\hypertarget{_stop_8h_source}{}\doxysection{Stop.\+h}
+\label{_stop_8h_source}\index{Classes/Stop.h@{Classes/Stop.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef TRABALHOAED2\_STOP\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define TRABALHOAED2\_STOP\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Coordinates.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_stop}{Stop}} \{}
+\DoxyCodeLine{13 \textcolor{keyword}{private}:}
+\DoxyCodeLine{14     std::string name, code, zone;}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_coordinates}{Coordinates}} coord = \mbox{\hyperlink{class_coordinates}{Coordinates}}(0, 0);}
+\DoxyCodeLine{16     std::vector<std::string> line;}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_stop_ab8870f949c69cda03c4055524ed13c31}{Stop}}();}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_stop_a1d04b362d66c4f94b0dd0f6154c32418}{Stop}}(std::string name, std::string code, std::string zone, \textcolor{keywordtype}{double} latitude, \textcolor{keywordtype}{double} longitude);}
+\DoxyCodeLine{38     \mbox{\hyperlink{class_stop_a222cd5350702265d61be2095ce5c267f}{Stop}}(std::string name, std::string code, std::string zone, \mbox{\hyperlink{class_coordinates}{Coordinates}} coord);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{45     std::vector<std::vector<std::string>> \mbox{\hyperlink{class_stop_a08a0a47650937a40405ef7d6a33b1456}{read\_stops}}(std::string filepath) \textcolor{keyword}{const};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{52     std::vector<std::string> \mbox{\hyperlink{class_stop_a15b7ed01d1a3e118ecb59e3f780885d0}{read\_stop}}(std::string line) \textcolor{keyword}{const};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{58     std::string \mbox{\hyperlink{class_stop_a7e2499a50c7315ae02c88be239320e9f}{getName}}();}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stop_ad8f048740f6e591d69e7101ce1b40241}{addLine}}(std::string newLine\_);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_stop_af79f0c7f5475e490fe2137a513ca3803}{operator == }}(\mbox{\hyperlink{class_stop}{Stop}} A);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_stop_ae07622ec563a83e71aa384366a77374e}{operator != }}(\mbox{\hyperlink{class_stop}{Stop}} A);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stop_ae46e3427b44826f090899c57e14c348e}{setCode}}(std::string basicString);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{90     std::string \mbox{\hyperlink{class_stop_a41d51058f3367c3e783c7b58d8a11366}{getCode}}();}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{96     std::string \mbox{\hyperlink{class_stop_a9940d869072cddcc82668cd0c5782a65}{getZone}}();}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{102     std::vector<std::string> \mbox{\hyperlink{class_stop_ae2f3535c92f07739dfc329681bc4ef63}{getLines}}();}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{108     \mbox{\hyperlink{class_coordinates}{Coordinates}} \mbox{\hyperlink{class_stop_a3b36e4142a3a884a5cc648bbdfc3013f}{getCoordinates}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{109 \};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//TRABALHOAED2\_STOP\_H}}
+
+\end{DoxyCode}

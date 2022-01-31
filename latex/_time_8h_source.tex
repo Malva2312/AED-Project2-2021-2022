@@ -1,0 +1,61 @@
+\hypertarget{_time_8h_source}{}\doxysection{Time.\+h}
+\label{_time_8h_source}\index{Classes/Time.h@{Classes/Time.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by asus on 16/12/2021.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef PROJETO\_TIME\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define PROJETO\_TIME\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_time}{Time}}\{}
+\DoxyCodeLine{11 \textcolor{keyword}{private}:}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} min;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} hour;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} day;}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} month;}
+\DoxyCodeLine{16     \textcolor{keywordtype}{int} year;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_time_aaeefe670d195d8f1bca1a99ac0b705ea}{Time}}(\textcolor{keywordtype}{int} min, \textcolor{keywordtype}{int} hour, \textcolor{keywordtype}{int} day, \textcolor{keywordtype}{int} month, \textcolor{keywordtype}{int} year);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_time_ae848447a3e0479437a7eda4dab906ef1}{setMin}}(\textcolor{keywordtype}{int} min);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_time_ab77d5f9f5fa8582d23a70d418ab6a182}{setHour}}(\textcolor{keywordtype}{int} hour);}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_time_a31d352e8cf6a025b275e281689e100cd}{setDay}}(\textcolor{keywordtype}{int} day);}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_time_aaa60fd08e34a3d4c106e7871c1fcbbdb}{setMonth}}(\textcolor{keywordtype}{int} month);}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_time_a6d590de7818f9ab16bea1ff8e2a316dd}{setYear}}(\textcolor{keywordtype}{int} year);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{59     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_time_a8cd37cf10b562d7f6efb418e7e0aa90a}{getMin}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{64     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_time_aacb846812dccbf244d52e0f237ad0026}{getHour}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{69     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_time_a1a0aaa223057af66b55e0287a6219262}{getDay}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{74     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_time_a92ebae2cc25d4d448b934ab632577cb7}{getMonth}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{79     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_time_ade7face40dbabb5ee40b34e2584ca731}{getYear}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{comment}{//aux}}
+\DoxyCodeLine{88 \textcolor{comment}{}    \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_time_afd8ee47bdb2c30567556943f6977956a}{isLeapYear}}(\textcolor{keywordtype}{int} year) \textcolor{keyword}{const};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{93     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_time_a3daeb67de59f3979697f2bf55b69f0eb}{setToValid}}();}
+\DoxyCodeLine{98     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_time_aa8184c385a50f43a4dc05723b2eba60f}{isValid}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{106     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_time_a65a1458faac28ee98c7b7ffe63072129}{getMonthMaxDays}}(\textcolor{keywordtype}{int} month, \textcolor{keywordtype}{int} year) \textcolor{keyword}{const};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{113     \mbox{\hyperlink{class_time}{Time}} \mbox{\hyperlink{class_time_aece87081109238ca564741674d59e504}{operator-\/}}(\mbox{\hyperlink{class_time}{Time}} time1) \textcolor{keyword}{const};}
+\DoxyCodeLine{119     \mbox{\hyperlink{class_time}{Time}} \mbox{\hyperlink{class_time_aa5d924b6bbd52e2b8241a6cc5f3fdb2b}{operator+}}(\mbox{\hyperlink{class_time}{Time}} time1) \textcolor{keyword}{const};}
+\DoxyCodeLine{125     \mbox{\hyperlink{class_time}{Time}} \mbox{\hyperlink{class_time_aa5d924b6bbd52e2b8241a6cc5f3fdb2b}{operator+}}(\textcolor{keywordtype}{int} delta);}
+\DoxyCodeLine{131     \mbox{\hyperlink{class_time}{Time}} \mbox{\hyperlink{class_time_aece87081109238ca564741674d59e504}{operator-\/}}(\textcolor{keywordtype}{int} delta);}
+\DoxyCodeLine{137     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_time_a120b21283f098e7cc19a46bdba451c73}{operator<}}(\mbox{\hyperlink{class_time}{Time}} time1);}
+\DoxyCodeLine{143     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_time_a27c9fe1d00d6584e8c5e24a2f0057f3d}{operator>}}(\mbox{\hyperlink{class_time}{Time}} time1);}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{150     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_time_a16219e1e7fecd0e24cd58203db78e395}{operator==}}(\mbox{\hyperlink{class_time}{Time}} time1);}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{156     std::string \mbox{\hyperlink{class_time_afe956f09905ee2dd683a055fee845b9b}{toString}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{157 \};}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO\_TIME\_H}}
+
+\end{DoxyCode}
