@@ -1,10 +1,4 @@
-//
-// Created by asus on 18/12/2021.
-//
 
-#include <iomanip>
-#include <sstream>
-#include <iostream>
 #include "Coordinates.h"
 
 

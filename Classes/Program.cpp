@@ -1,6 +1,3 @@
-//
-// Created by asus on 25/01/2022.
-//
 
 #include "Program.h"
 

@@ -1,6 +1,4 @@
-//
-// Created by asus on 25/01/2022.
-//
+
 
 #ifndef TRABALHOAED2_PROGRAM_H
 #define TRABALHOAED2_PROGRAM_H

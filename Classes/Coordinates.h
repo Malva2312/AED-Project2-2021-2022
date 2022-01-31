@@ -8,6 +8,9 @@
 
 #include <string>
 #include <cmath>
+#include <iomanip>
+#include <sstream>
+#include <iostream>
 
 class Coordinates {
 private:

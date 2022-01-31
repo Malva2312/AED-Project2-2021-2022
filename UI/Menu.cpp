@@ -505,8 +505,8 @@ void Menu::displayBestAlternatives(string orgCode, string destCode) {
     vector<Stop> path = program->shortestPath(program->choosePath(option), bestPath.second.first, bestPath.second.second);
 
 
-
-    for (unsigned idx = path.size() -1; idx >= 0; idx--){
-        cout << path.at(idx).getCode() << " --- " << path.at(idx).getName() << " --- " <<endl;
+    reverse(path.begin(), path.end());
+    for (Stop stop : path){
+        cout << stop.getCode() << " --- " << stop.getName() << " --- " <<endl;
     }
 }
